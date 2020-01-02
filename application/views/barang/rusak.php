@@ -115,29 +115,29 @@
                     </thead>
                     <tbody>
                     <?php $no = 0; ?>
-                        <?php foreach($res as $row) : ?>
-                            <?php $no++; ?>
+                        <?php //foreach($res as $row) : ?>
+                            <?php //$no++; ?>
                             <tr>
-                                <td> <?php echo $no; ?> </td>
-                                <td><?php echo  $row->kode_barang ?></td>
-                                <td><?php echo  $row->id_model ?></td>
-                                <td><?php echo  $row->nama_barang ?></td>
-                                <td><?php echo  $row->merk ?></td>
-                                <td><?php echo  $row->tanggal_masuk ?></td>
-                                <td><?php echo  $row->status ?></td>
+                                <td> <?php  ?> </td>
+                                <td><?php  ?></td>
+                                <td><?php  ?></td>
+                                <td><?php  ?></td>
+                                <td><?php  ?></td>
+                                <td><?php  ?></td>
+                                <td><?php  ?></td>
                                 <td> 
                                     <a href="javascript:void(0);" class="btn btn-info item-edit" 
-                                        data-kode_barang="<?php echo  $row->kode_barang ?>" 
-                                        data-id_model="<?php echo  $row->id_model ?>" 
-                                        data-nama_barang="<?php echo  $row->nama_barang  ?>" 
-                                        data-merk="<?php echo  $row->merk ?>" 
-                                        data-tanggal_masuk="<?php echo  $row->tanggal_masuk ?>" 
-                                        data-status="<?php echo  $row->status ?>" >Edit</a>
+                                        data-kode_barang="<?php  ?>" 
+                                        data-id_model="<?php  ?>" 
+                                        data-nama_barang="<?php   ?>" 
+                                        data-merk="<?php  ?>" 
+                                        data-tanggal_masuk="<?php  ?>" 
+                                        data-status="<?php  ?>" >Edit</a>
                                     <a href="javascript:void(0);" class="btn btn-danger item-del" 
-                                        data-kode_barang="<?php echo  $row->kode_barang ?>">Del</a>
+                                        data-kode_barang="<?php  ?>">Del</a>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php //endforeach; ?>
                     </tbody>
                 </table>
                 <hr>
