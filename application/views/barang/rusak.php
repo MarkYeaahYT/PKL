@@ -11,63 +11,72 @@
         <!-- MODAL EDIT -->
         <form>
             <div class="modal fade" id="Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-md" role="document">
+                <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Kode Barang</label>
-                            <div class="col-md-10">
-                              <input type="text" name="code_barang_edit" id="code_barang_edit" class="form-control" placeholder="Code barang" readonly>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <div class="col-md-9">
+                                <label for="no_inventaris_edit">No Inventaris</label>
+                                <input type="text" class="form-control" id="no_inventaris_edit" placeholder="ALF/">
+                                <small class="form-text text-muted">No inventaris barang</small>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="nama_edit">Nama</label>
+                                    <input type="text" class="form-control" id="nama_edit" placeholder="Nama Barang">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="kondisi_edit">Kondisi</label>
+                                    <select name="kondis" id="kondisi_edit" class="form-control">
+                                        <option value="Baru">Baru</option>
+                                        <option value="Second">Second</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="tanggalbeli_edit">Tanggal Beli</label>
+                                    <input type="date" placeholder="yyyymmdd" class="form-control" id="tanggalbeli_edit" >
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="harga_edit">Harga</label>
+                                    <input type="text" class="form-control" id="harga_edit" placeholder="example: 100000">
+                                    <small class="form-text text-muted">Harga</small>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="status_edit">Status</label>
+                                    <select name="status" id="status_edit" class="form-control">
+                                        <option value="Normal">Normal</option>
+                                        <option value="Rusak">Rusak</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-9">
+                                    <label for="ruang_edit">Ruang</label>
+                                    <input type="text" class="form-control" id="ruang_edit" placeholder="Ruang">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">No Model</label>
-                            <div class="col-md-10">
-                              <input type="text" name="model_edit" id="model_edit" class="form-control" placeholder="No Model ">
-                              <input hidden type="text" name="current_model_edit" id="current_model_edit" class="form-control">
-                            </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" type="submit" id="btn_update" class="btn btn-primary">Update</button>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Nama Barang</label>
-                            <div class="col-md-10">
-                              <input type="text" name="nama_barang_edit" id="nama_barang_edit" class="form-control" placeholder="Nama Barang">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Merk</label>
-                            <div class="col-md-10">
-                              <input type="text" name="merk_barang_edit" id="merk_barang_edit" class="form-control" placeholder="Merk">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Status</label>
-                            <div class="col-md-10">
-                            <select name="status_edt" id="status_edt" class="form-control">
-                                    <option value="Normal">Normal</option>
-                                    <option value="Rusak">Rusak</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Tanggal Masuk</label>
-                            <div class="col-md-10">
-                              <input type="date" name="tanggal_masuk_edit" id="tanggal_masuk_edit" class="form-control" placeholder="yyyymmdd">
-                            </div>
-                        </div>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" type="submit" id="btn_update" class="btn btn-primary">Update</button>
-                  </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </form>
         <!--END MODAL EDIT-->
@@ -75,24 +84,24 @@
         <!--MODAL DELETE-->
          <form>
             <div class="modal fade" id="Modal_Delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Barang</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                       <strong>Are you sure to delete this record?</strong>
-                  </div>
-                  <div class="modal-footer">
-                    <input type="hidden" name="code_barang_delete" id="code_barang_delete" class="form-control">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
-                  </div>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete Barang</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>Are you sure to delete this record?</strong>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="hidden" name="code_barang_delete" id="code_barang_delete" class="form-control">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                            <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
         </form>
         <!--END MODAL DELETE-->
@@ -103,21 +112,23 @@
                 <table class="table table-bordered" id="mytable">
                     <thead>
                         <tr class="bg-light">
-                            <th>No</th>
-                            <th>Kode Barang</th>
-                            <th>No Model</th>
-                            <th>Nama barang</th>
-                            <th>Merk</th>
-                            <th>Tanggal Masuk</th>
+                        <th>No</th>
+                            <th>No Inventaris</th>
+                            <th>Nama</th>
+                            <th>Kondisi</th>
+                            <th>Tanggal Beli</th>
+                            <th>Harga</th>
                             <th>Status</th>
-                            <th >Action</th>
+                            <th>Ruang</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="show_data">
                     <?php $no = 0; ?>
                         <?php //foreach($res as $row) : ?>
                             <?php //$no++; ?>
                             <tr>
+                                <td> <?php  ?> </td>
                                 <td> <?php  ?> </td>
                                 <td><?php  ?></td>
                                 <td><?php  ?></td>
@@ -143,7 +154,6 @@
                 <hr>
             </div>
         </div>
-        
     </div>
 </div>
 

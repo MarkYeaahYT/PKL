@@ -7,12 +7,21 @@ class Inventory extends CI_Controller{
         parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('inventory_model');
-    }
+	}
+	
+	public function show_data()
+	{
+		/**
+		 * show data in tables process with jquery
+		 */
+		$data = $this->inventory_model->show();
+		echo json_encode($data);
+
+	}
 
     public function data()
 	{
-		$data['res'] = $this->inventory_model->show();
-		$this->load->view('data', $data);
+		$this->load->view('data');
 	}
 	
 	public function import()

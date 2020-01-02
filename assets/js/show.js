@@ -1,5 +1,49 @@
 $(document).ready(function () {
 
+    // show data table
+    function show_data() {
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/inventory/show_data",
+            async: true,
+            data: "data",
+            dataType: "JSON",
+            success: function (data) {
+                var html = '';
+                var i;
+                var no = 0;
+                for(i = 0; i < data.length; i++){
+                    no++
+                    html += '<tr>'+
+                                '<td>'+no+'</td>'+
+                                '<td>'+data[i].no_inventaris+'</td>'+
+                                '<td>'+data[i].nama+'</td>'+
+                                '<td>'+data[i].kondisi+'</td>'+
+                                '<td>'+data[i].tanggal_beli+'</td>'+
+                                '<td>'+data[i].harga+'</td>'+
+                                '<td>'+data[i].status+'</td>'+
+                                '<td>'+data[i].ruang+'</td>'+
+                                '<td style="text-align:right;">'+
+                                    '<a href="javascript:void(0);" class="btn btn-info btn-sm item-edit" '+
+                                    'data-kode_barang="'+data[i].kode_barang+'" '+
+                                    'data-no_inventaris="'+data[i].no_inventaris+'" '+
+                                    'data-nama="'+data[i].nama+'" '+
+                                    'data-kondisi="'+data[i].kondisi+'" '+
+                                    'data-tanggal_beli="'+data[i].tanggal_beli+'" '+
+                                    'data-harga="'+data[i].harga+'" '+
+                                    'data-status="'+data[i].status+'" '+
+                                    'data-ruang="'+data[i].ruang+'">Edit</a>'+' '+
+                                    '<a href="javascript:void(0);" class="btn btn-danger btn-sm item-del" data-product_code="'+data[i].kode_barang+'">Delete</a>'+
+                                '</td>'+
+                            '<tr>';
+                }
+                $('#show_data').html(html);
+            }
+        });
+    }
+
+    show_data();
+
     // Handle btn edit
     $('#mytable').on('click','.item-edit' , function () {
         var kode_barang = $(this).data('kode_barang');

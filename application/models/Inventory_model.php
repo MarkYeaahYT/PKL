@@ -10,8 +10,8 @@ class Inventory_model extends CI_Model{
     public function show()
     {
         # code...
-        // $query = $this->db->query("select * from barang b inner join model m on b.id_model = m.id_model");
-        // return $query->result();
+        $query = $this->db->get("barang");
+        return $query->result();
     }
 
     public function tambah()
