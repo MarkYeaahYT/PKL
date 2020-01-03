@@ -54,7 +54,7 @@
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="harga">Harga</label>
-                                                <input type="text" class="form-control" id="harga" placeholder="example: 100000">
+                                                <input type="number" min="0" class="form-control" id="harga" placeholder="example: 100000">
                                                 <small class="form-text text-muted">Harga</small>
                                             </div>
                                         </div>
@@ -100,6 +100,7 @@
                                 <div class="form-group">
                                     <div class="col-md-9">
                                         <label for="no_inventaris_edit">No Inventaris</label>
+                                        <input hidden type="text" class="form-control" id="kode_barang_edit">
                                         <input type="text" class="form-control" id="no_inventaris_edit" placeholder="ALF/">
                                         <small class="form-text text-muted">No inventaris barang</small>
                                     </div>
@@ -122,7 +123,7 @@
                                     <div class="form-group">
                                         <div class="col-md-9">
                                             <label for="tanggalmasuk_edit">Tanggal Masuk</label>
-                                            <input type="date" placeholder="yyyymmdd" class="form-control" id="tanggalmasuk_edit" >
+                                            <input type="date" placeholder="yyyymmdd" class="form-control" id="tanggalbeli_edit" >
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -215,6 +216,42 @@
 </div>
 
 <script>
-    $('#mytable').DataTable();
+    var table = $('#mytable').DataTable({
+        
+        ajax: {
+            url: '/alfabank/inventory/show_data',
+            dataSrc: ''
+        },
+        columns: [
+            {data: 'kode_barang'},
+            {data: 'no_inventaris'},
+            {data: 'nama'},
+            {data: 'kondisi'},
+            {data: 'tanggal_beli'},
+            {render: function(data, type, row){
+                return 'Rp '+row.harga
+            }},
+            {data: 'status'},
+            {data: 'ruang'},
+            {render: function(data, type, row){
+                return '<a href="javascript:void(0);" class="btn btn-info item-edit"'+
+                        'data-kode_barang="'+row.kode_barang+
+                        '"data-no_inventaris="'+row.no_inventaris+
+                        '"data-nama="'+row.nama+
+                        '"data-kondisi="'+row.kondisi+
+                        '"data-tanggal_beli="'+row.tanggal_beli+
+                        '"data-harga="'+row.harga+
+                        '"data-status="'+row.status+
+                        '"data-ruang="'+row.ruang+
+                        '" >Edit</a>'+
+                        '<a href="javascript:void(0);" class="btn btn-danger item-del" data-kode_barang="'+row.kode_barang+'">Del</a>'
+            }}
+        ]
+    });
+    table.on('order.dt search.dt', function(){
+        table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) { 
+            cell.innerHTML = i + 1;
+         });
+    })
 </script>
 <script src="<?php echo base_url('assets/js/show.js'); ?>"></script>

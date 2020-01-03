@@ -17,59 +17,44 @@ class Inventory_model extends CI_Model{
     public function tambah()
     {
         # code...
-        // $data1 = "";
-        // $data2 = "";
-        // if($this->check_model($this->input->post('id_model')) == 0){
-        //     $data = array(
-        //         'id_model' => $this->input->post('id_model'),
-        //         'nama_barang' => $this->input->post('nama_barang'),
-        //         'merk' => $this->input->post('merk'),
-        //     );
-        //     $data1 = $this->db->insert('model', $data);
-        // }
-
-        // $data = array(
-        //     'kode_barang' => $this->input->post('kode_barang'),
-        //     'id_model' => $this->input->post('id_model'),
-        //     'status' => $this->input->post('status'),
-        //     'tanggal_masuk' => $this->input->post('tanggal_masuk')
-        // );
-        // $data2 = $this->db->insert('barang', $data);
-        // return $data1."-".$data2;
+        $data = array(
+            'no_inventaris' => $this->input->post('no_inventaris'),
+            'harga' => $this->input->post('harga'),
+            'kondisi' => $this->input->post('kondisi'),
+            'nama' => $this->input->post('nama'),
+            'status' => $this->input->post('status'),
+            'tanggal_beli' => $this->input->post('tanggal_beli'),
+            'ruang' => $this->input->post('ruang')
+        );
+        $data1 = $this->db->insert('barang', $data);
+        return $data1;
 
     }
 
     public function hapus()
     {
         # code...
-        // $kode_barang = $this->input->post('kode_barang');
-        // $this->db->where('kode_barang', $kode_barang);
-        // $data = $this->db->delete('barang');
-        // return $data;
+        $kode_barang = $this->input->post('kode_barang');
+        $this->db->where('kode_barang', $kode_barang);
+        $data = $this->db->delete('barang');
+        return $data;
     }
 
     public function update()
     {
         # code...
-        // $data1 = "";
-        // $data2 = "";
-        // $kode_barang = $this->input->post('kode_barang');
-        // $current_idmodel = $this->input->post('current_idmodel');
+        $kode_barang = $this->input->post('kode_barang');
+        $this->db->set('no_inventaris', $this->input->post('no_inventaris'));
+        $this->db->set('harga', $this->input->post('harga'));
+        $this->db->set('kondisi', $this->input->post('kondisi'));
+        $this->db->set('nama', $this->input->post('nama'));
+        $this->db->set('status', $this->input->post('status'));
+        $this->db->set('tanggal_beli', $this->input->post('tanggal_beli'));
+        $this->db->set('ruang', $this->input->post('ruang'));
+        $this->db->where('kode_barang', $kode_barang);
+        $data = $this->db->update('barang');
+        return $data;
 
-        // $data = array(
-        //     'id_model' => $this->input->post('id_model'),
-        //     'nama_barang' => $this->input->post('nama_barang'),
-        //     'merk' => $this->input->post('merk'),
-        // );
-        // $this->db->where('id_model', $current_idmodel);
-        // $data1 = $this->db->update('model', $data);
-
-        
-        // $this->db->set('status', $this->input->post('status'));
-        // $this->db->set('tanggal_masuk', $this->input->post('tanggal_masuk'));
-        // $this->db->where('kode_barang', $kode_barang);
-        // $data2 = $this->db->update('barang');
-        // return $data1."-".$data2;
 
     }
 
