@@ -5,6 +5,7 @@ $(document).ready(function () {
         var kode_barang = $(this).data('kode_barang');
         var no_inventaris = $(this).data('no_inventaris');
         var nama = $(this).data('nama');
+        var cat = $(this).data('cat');
         var tanggal_beli = $(this).data('tanggal_beli');
         var harga = $(this).data('harga');
         var ruang = $(this).data('ruang');
@@ -13,6 +14,7 @@ $(document).ready(function () {
         $('#kode_barang_edit').val(kode_barang);
         $('#no_inventaris_edit').val(no_inventaris);
         $('#nama_edit').val(nama);
+        $('#cat_edit').val(cat);
         $('#tanggalbeli_edit').val(tanggal_beli);
         $('#harga_edit').val(harga);
         $('#ruang_edit').val(ruang);
@@ -95,6 +97,7 @@ $(document).ready(function () {
     $('#btn_add').on('click', function () {
         var no_inventaris = $('#no_inventaris').val();
         var nama = $('#nama').val();
+        var cat = $('#cat').val();
         var kondisi = $("#kondisi").val();
         var tanggal_beli = $('#tanggalbeli').val();
         var harga = $('#harga').val();
@@ -109,6 +112,7 @@ $(document).ready(function () {
             data: {
                no_inventaris:no_inventaris, 
                 nama: nama, 
+                cat: cat, 
                 kondisi: kondisi, 
                 status: status, 
                 tanggal_beli: tanggal_beli, 
@@ -126,6 +130,7 @@ $(document).ready(function () {
         // Clear
         $('#no_inventaris').val("");
         $('#nama').val("");
+        $('#cat').val("");
         $("#kondisi").val("");
         $('#tanggalbeli').val("");
         $('#harga').val("");

@@ -38,6 +38,15 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
+                                                <label for="cat">Katagori</label>
+                                                <select name="cat" id="cat" class="form-control">
+                                                    <option value="NE">NE</option>
+                                                    <option value="EL">EL</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
                                                 <label for="kondisi">Kondisi</label>
                                                 <select name="kondis" id="kondisi" class="form-control">
                                                     <option value="Baru">Baru</option>
@@ -70,7 +79,7 @@
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="ruang">Ruang</label>
-                                                <input type="text" class="form-control" id="ruang" placeholder="Ruang">
+                                                <input type="text" class="form-control" id="ruang">
                                             </div>
                                         </div>
                                 </div>
@@ -109,6 +118,15 @@
                                         <div class="col-md-9">
                                             <label for="nama_edit">Nama</label>
                                             <input type="text" class="form-control" id="nama_edit" placeholder="Nama Barang">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="cat_edit">Katagori</label>
+                                            <select name="cat_edit" id="cat_edit" class="form-control">
+                                                <option value="NE">NE</option>
+                                                <option value="EL">EL</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -196,6 +214,7 @@
                             <!-- <th>Kode Barang</th> -->
                             <th>No Inventaris</th>
                             <th>Nama</th>
+                            <th>Kategori</th>
                             <th>Kondisi</th>
                             <th>Tanggal Beli</th>
                             <th>Harga</th>
@@ -226,6 +245,7 @@
             {data: 'kode_barang'},
             {data: 'no_inventaris'},
             {data: 'nama'},
+            {data: 'cat'},
             {data: 'kondisi'},
             {data: 'tanggal_beli'},
             {render: function(data, type, row){
@@ -238,6 +258,7 @@
                         'data-kode_barang="'+row.kode_barang+
                         '"data-no_inventaris="'+row.no_inventaris+
                         '"data-nama="'+row.nama+
+                        '"data-cat="'+row.cat+
                         '"data-kondisi="'+row.kondisi+
                         '"data-tanggal_beli="'+row.tanggal_beli+
                         '"data-harga="'+row.harga+
