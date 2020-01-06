@@ -43,7 +43,7 @@ $(document).ready(function () {
     var no_urut = 0;
     $.ajax({
         type: "GET",
-        url: "/Ajax/unit/incrementID",
+        url: "/alfabank/inventory/incNO",
         data: "",
         dataType: "JSON",
         success: function (r) {
