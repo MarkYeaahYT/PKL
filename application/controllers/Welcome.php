@@ -21,8 +21,14 @@ class Welcome extends CI_Controller {
 	public function rusak()
 	{
 		# code...
-		$data['res'] = $this->inventory_model->check_rusak();
-		$this->load->view('rusak', $data);
+		$this->load->view('rusak');
+	}
+
+	public function rusak_data()
+	{
+		# code...
+		$data = $this->inventory_model->check_rusak();
+		echo json_encode($data);
 	}
 
 }

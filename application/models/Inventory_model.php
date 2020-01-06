@@ -66,9 +66,9 @@ class Inventory_model extends CI_Model{
         /**
          * Check data barang rusak
          */
-        # code...
-        // $query = $this->db->query("select * from barang b inner join model m on b.id_model = m.id_model where status = 'rusak'");
-        // return $query->result();
+        $this->db->where('status', 'Rusak');
+        $query = $this->db->get('barang');
+        return $query->result();
     }
 
     public function check_jum_rusak()
@@ -77,8 +77,8 @@ class Inventory_model extends CI_Model{
          * check jumlah barang rusak
          */
         # code...
-        // $query = $this->db->query("select * from barang where status = 'rusak' ");
-        // return $query->num_rows();
+        $query = $this->db->query("select * from barang where status = 'rusak' ");
+        return $query->num_rows();
     }
     
     public function check_jum_normal()
@@ -87,8 +87,8 @@ class Inventory_model extends CI_Model{
          * check jumlah barang normal
          */
         # code...
-        // $query = $this->db->query("select * from barang where status = 'normal' ");
-        // return $query->num_rows();
+        $query = $this->db->query("select * from barang where status = 'normal' ");
+        return $query->num_rows();
     }
 
     public function jumlah_barang()
@@ -97,8 +97,17 @@ class Inventory_model extends CI_Model{
          * check totla barang
          */
         # code...
-        // $query = $this->db->get('barang');
-        // return $query->num_rows();
+        $query = $this->db->get('barang');
+        return $query->num_rows();
+    }
+
+    public function incrementNO()
+    {
+        /**
+         * checking last number then increment by js
+         */
+        $data = $this->db->query('select * from barang order by kode_barang desc limit 1');
+        return $data->result();
     }
 
 }

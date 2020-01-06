@@ -5,7 +5,7 @@
         </div>
         <div class="row pt-4 pb-4">
             <div class="container">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                <button id="tambah" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                     <img src="<?php echo base_url('assets/icon/add.png'); ?>" width="25" height="25" alt="" srcset="">
                 Tambah Barang
                 </button>
@@ -26,7 +26,7 @@
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="no_inventaris">No Inventaris</label>
-                                                <input type="text" class="form-control" id="no_inventaris" placeholder="ALF/">
+                                                <input type="text" class="form-control" id="no_inventaris" readonly>
                                                 <small class="form-text text-muted">No inventaris barang</small>
                                             </div>
                                         </div>
@@ -110,7 +110,7 @@
                                     <div class="col-md-9">
                                         <label for="no_inventaris_edit">No Inventaris</label>
                                         <input hidden type="text" class="form-control" id="kode_barang_edit">
-                                        <input type="text" class="form-control" id="no_inventaris_edit" placeholder="ALF/">
+                                        <input type="text" class="form-control" id="no_inventaris_edit" readonly>
                                         <small class="form-text text-muted">No inventaris barang</small>
                                     </div>
                                     </div>
@@ -276,3 +276,4 @@
     })
 </script>
 <script src="<?php echo base_url('assets/js/show.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/automatic.js'); ?>"></script>

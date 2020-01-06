@@ -5,12 +5,7 @@
                 <img src="<?php echo base_url('assets/icon/ruang.png');?>" alt="" width="30" height="30" >
                 Ruang
             </h2>
-            <form method="post" enctype="multipart/form-data" action="">
-               Silakan Pilih File Excel:
-              <br>
-              <input name="userfile" type="file">
-              <input name="upload" type="submit" value="Import" bg-color >
-            </form>
+            
         </div>
     </div>
 </div>

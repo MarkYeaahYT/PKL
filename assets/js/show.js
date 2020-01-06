@@ -6,8 +6,10 @@ $(document).ready(function () {
         var no_inventaris = $(this).data('no_inventaris');
         var nama = $(this).data('nama');
         var cat = $(this).data('cat');
+        var kondisi = $(this).data('kondisi');
         var tanggal_beli = $(this).data('tanggal_beli');
         var harga = $(this).data('harga');
+        var status = $(this).data('status');
         var ruang = $(this).data('ruang');
 
         
@@ -15,8 +17,10 @@ $(document).ready(function () {
         $('#no_inventaris_edit').val(no_inventaris);
         $('#nama_edit').val(nama);
         $('#cat_edit').val(cat);
+        $('#kondisi_edit').val(kondisi);
         $('#tanggalbeli_edit').val(tanggal_beli);
         $('#harga_edit').val(harga);
+        $('#status_edit').val(status);
         $('#ruang_edit').val(ruang);
 
         $('#Modal_Edit').modal('show');
@@ -27,6 +31,7 @@ $(document).ready(function () {
         var kode_barang = $('#kode_barang_edit').val();
         var no_inventaris = $('#no_inventaris_edit').val();
         var nama = $('#nama_edit').val();
+        var cat = $('#cat_edit').val();
         var kondisi = $("#kondisi_edit").val();
         var tanggal_beli = $('#tanggalbeli_edit').val();
         var harga = $('#harga_edit').val();
@@ -41,6 +46,7 @@ $(document).ready(function () {
                 kode_barang: kode_barang,
                 no_inventaris: no_inventaris,
                 nama: nama,
+                cat: cat,
                 kondisi: kondisi,
                 tanggal_beli: tanggal_beli,
                 harga: harga,
@@ -57,6 +63,7 @@ $(document).ready(function () {
         $('#kode_barang_edit').val("");
         $('#no_inventaris_edit').val("");
         $('#nama_edit').val("");
+        $('#cat_edit').val("");
         $("#kondisi_edit").val("");
         $('#tanggalbeli_edit').val("");
         $('#harga_edit').val("");
@@ -121,7 +128,7 @@ $(document).ready(function () {
             },
             dataType: "JSON",
             success: function (response) {
-                console.log(response);
+                // console.log(response);
                 location.reload(true);
             }
         });

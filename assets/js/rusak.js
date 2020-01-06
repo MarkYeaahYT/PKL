@@ -2,31 +2,39 @@ $(document).ready(function () {
     //handle btn edit
     $('#mytable').on('click', '.item-edit', function () {
         var kode_barang = $(this).data('kode_barang');
-        var id_model = $(this).data('id_model');
-        var nama_barang = $(this).data('nama_barang');
-        var merk = $(this).data('merk');
-        var tanggal_masuk = $(this).data('tanggal_masuk');
+        var no_inventaris = $(this).data('no_inventaris');
+        var nama = $(this).data('nama');
+        var cat = $(this).data('cat');
+        var kondisi = $(this).data('kondisi');
+        var tanggal_beli = $(this).data('tanggal_beli');
+        var harga = $(this).data('harga');
         var status = $(this).data('status');
+        var ruang = $(this).data('ruang');
 
-        $('#code_barang_edit').val(kode_barang);
-        $('#model_edit').val(id_model);
-        $('#nama_barang_edit').val(nama_barang);
-        $('#merk_barang_edit').val(merk);
-        $('#tanggal_masuk_edit').val(tanggal_masuk);
-        $('#current_model_edit').val(id_model);
+        $('#kode_barang_edit').val(kode_barang);
+        $('#no_inventaris_edit').val(no_inventaris);
+        $('#nama_edit').val(nama);
+        $('#cat_edit').val(cat);
+        $('#kondisi_edit').val(kondisi);
+        $('#tanggalbeli_edit').val(tanggal_beli);
+        $('#harga_edit').val(harga);
+        $('#status_edit').val(status);
+        $('#ruang_edit').val(ruang);
 
         $('#Modal_Edit').modal('show');
     });
 
     // Handle Edit to send
     $('#btn_update').on('click', function () {
-        var kode_barang = $('#code_barang_edit').val();
-        var id_model = $('#model_edit').val();
-        var nama_barang = $('#nama_barang_edit').val();
-        var merk = $('#merk_barang_edit').val();
-        var tanggal_masuk = $('#tanggal_masuk_edit').val();
-        var status_edt = $('[name="status_edt"]').val();
-        var current_id_model = $('#current_model_edit').val();
+        var kode_barang = $('#kode_barang_edit').val();
+        var no_inventaris = $('#no_inventaris_edit').val();
+        var nama = $('#nama_edit').val();
+        var cat = $('#cat_edit').val();
+        var kondisi = $("#kondisi_edit").val();
+        var tanggal_beli = $('#tanggalbeli_edit').val();
+        var harga = $('#harga_edit').val();
+        var status = $('#status_edit').val();
+        var ruang = $('#ruang_edit').val();
         
         $.ajax({
             type: "POST",
@@ -34,30 +42,33 @@ $(document).ready(function () {
             cache: false,
             data: {
                 kode_barang: kode_barang,
-                id_model: id_model,
-                nama_barang: nama_barang,
-                merk: merk,
-                tanggal_masuk: tanggal_masuk,
-                status: status_edt,
-                current_idmodel: current_id_model
+                no_inventaris: no_inventaris,
+                nama: nama,
+                cat: cat,
+                kondisi: kondisi,
+                tanggal_beli: tanggal_beli,
+                harga: harga,
+                status: status,
+                ruang: ruang
             },
-            dataType: "dataType",
+            dataType: "JSON",
             success: function (response) {
-                
+                location.reload(true);
             }
         });
         
         // Clear
-        $('#code_barang_edit').val("");
-        $('#model_edit').val("");
-        $('#nama_barang_edit').val("");
-        $('#merk_barang_edit').val("");
-        $('#tanggal_masuk_edit').val("");
-        $('[name="status_edt"]').val("");
-        $('#current_model_edit').val("");
+        $('#kode_barang_edit').val("");
+        $('#no_inventaris_edit').val("");
+        $('#nama_edit').val("");
+        $('#cat_edit').val("");
+        $("#kondisi_edit").val("");
+        $('#tanggalbeli_edit').val("");
+        $('#harga_edit').val("");
+        $('#status_edit').val("");
+        $('#ruang_edit').val("");
         
         $('#Modal_Edit').modal('hide');
-        location.reload(true);
     });
     
     
@@ -71,7 +82,7 @@ $(document).ready(function () {
     // Handle del to send
     $('#btn_delete').on('click', function () {
         var kode = $('#code_barang_delete').val();
-        console.log(kode);
+        // console.log(kode);
 
         $.ajax({
             type: "POST",

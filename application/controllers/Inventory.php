@@ -24,10 +24,10 @@ class Inventory extends CI_Controller{
 		$this->load->view('data');
 	}
 	
-	public function import()
+	public function ruang()
 	{
 		# code...
-		$this->load->view('import');
+		$this->load->view('ruang');
 	}
     
     public function add()
@@ -49,6 +49,15 @@ class Inventory extends CI_Controller{
 		# code...
 		$data = $this->inventory_model->update();
 		echo json_encode($data);
+	}
+
+	public function incNO()
+	{
+		# code...
+		$res = $this->inventory_model->incrementNO();
+        $no = $res[0]->no_inventaris;
+        $no = explode("/", $no);
+        echo json_encode($no[5]);
 	}
 
 }

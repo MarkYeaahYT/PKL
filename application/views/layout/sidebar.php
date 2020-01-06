@@ -30,10 +30,10 @@
     <div class="container fluid">
     <div class="row">
             <div class="col-md-3 col-sm-3">
-                <img class="img-fluid" src="<?php echo base_url('assets/icon/import.png'); ?>" alt="logo">
+                <img class="img-fluid" src="<?php echo base_url('assets/icon/ruang.png'); ?>" alt="logo">
             </div>
             <div class="col-sm-2">
-                <a href="<?php echo  base_url('inventory/import'); ?>">Import</a>
+                <a href="<?php echo  base_url('inventory/ruang'); ?>">Ruang</a>
             </div>
         </div>
         <hr>
