@@ -5,11 +5,20 @@
         </div>
         <div class="row pt-4 pb-4">
             <div class="container">
-                <button id="tambah" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    <img src="<?php echo base_url('assets/icon/add.png'); ?>" width="25" height="25" alt="" srcset="">
-                Tambah Barang
-                </button>
-                
+
+                    <div class="float-left">
+                        <button id="tambah" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                            <img src="<?php echo base_url('assets/icon/add.png'); ?>" width="25" height="25" alt="" srcset="">
+                        Tambah Barang
+                        </button>
+                    </div>
+
+                    <div class="float-right">
+                        <button id="export" type="button" class="btn btn-success pull-right">
+                            <img src="<?php echo base_url('assets/icon/export.png'); ?>" width="25" height="25" alt="" srcset="">
+                        Export
+                        </button>
+                    </div>
 
                 <!-- Modal -->
                 <form>
@@ -79,7 +88,10 @@
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="ruang">Ruang</label>
-                                                <input type="text" class="form-control" id="ruang">
+                                                <!-- <input type="text" class="form-control" id="ruang"> -->
+                                                <select name="ruang" id="ruang" class="form-control">
+                                                    <!-- JS process -->
+                                                </select>
                                             </div>
                                         </div>
                                 </div>
@@ -163,7 +175,10 @@
                                     <div class="form-group">
                                         <div class="col-md-9">
                                             <label for="ruang_edit">Ruang</label>
-                                            <input type="text" class="form-control" id="ruang_edit" placeholder="ruang">
+                                            <!-- <input type="text" class="form-control" id="ruang_edit" placeholder="ruang"> -->
+                                            <select name="ruang_edit" id="ruang_edit" class="form-control">
+                                                <!-- JS process -->
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -277,3 +292,4 @@
 </script>
 <script src="<?php echo base_url('assets/js/show.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/automatic.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/select.js'); ?>"></script>
