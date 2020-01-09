@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+    // Handle Export
+    $('#export').on('click', function () {
+        $('#Modal_Export').modal('show');
+        
+    });
+
     // Handle btn edit
     $('#mytable').on('click','.item-edit' , function () {
         var kode_barang = $(this).data('kode_barang');
