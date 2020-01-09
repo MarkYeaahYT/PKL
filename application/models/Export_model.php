@@ -46,7 +46,7 @@ class Export_model extends CI_Model{
             $pdf->Cell(25,6, $row->nama ,1,0);
             $pdf->Cell(10,6, $row->cat ,1,0);
             $pdf->Cell(15,6, $row->status ,1,0);
-            $pdf->Cell(22,6, $row->tanggal_beli ,1,); 
+            $pdf->Cell(22,6, $row->tanggal_beli ,1,0); 
             $pdf->Cell(20,6, $row->ruang ,1,1); 
 
         }

@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/dataTables.bootstrap4.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/jquery.dataTables.css'); ?>">
 
+    <link rel="shortcut icon" href="<?php echo base_url('assets/icon/logo.ico'); ?>" type="image/x-icon">
+
     <script src="<?php echo base_url('assets/bootstrap/js/jquery.dataTables.js'); ?>"></script>
     <script src="<?php echo base_url('assets/bootstrap/js/dataTables.bootstrap4.js'); ?>"></script>
 

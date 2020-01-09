@@ -88,7 +88,7 @@ $(document).ready(function () {
         bln = romawi(spl[1]);
         
         no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
-        console.log(no_invent);
+        // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
     })
 

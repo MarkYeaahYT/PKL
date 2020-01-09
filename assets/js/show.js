@@ -117,10 +117,42 @@ $(document).ready(function () {
         var status = $('#status').val();
         var ruang = $('#ruang').val();
 
+        var no_inventarisOK = "";
+        var no_urut = 0;
+
+        var inc = no_inventaris.split("/");
+        
+        // check and increment again
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/inventory/incNO",
+            data: "",
+            dataType: "JSON",
+            success: function (r) {
+                no_urut = parseInt(r);
+                no_urut += 1;
+                no_urut = String(no_urut).padStart(4, 0);
+                inc[5] = no_urut;
+                // console.log(no_urut);
+            }
+        });
+
+
+        var i = 0;
+        inc.forEach(element => {
+            i++;
+            if(i<6)
+                no_inventarisOK += element+"/";
+            else
+                no_inventarisOK += element;
+        });
+
+        console.log(no_inventarisOK);
 
         $.ajax({
             type: "POST",
             url: "/alfabank/inventory/add",
+            // url: "/",
             cache: false,
             data: {
                no_inventaris:no_inventaris, 
