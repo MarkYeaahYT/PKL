@@ -169,6 +169,7 @@
                                             <select name="status" id="status_edit" class="form-control">
                                                 <option value="Normal">Normal</option>
                                                 <option value="Rusak">Rusak</option>
+                                                <option value="Dijual">Dijual</option>
                                             </select>
                                         </div>
                                     </div>
@@ -229,7 +230,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <a href="<?php echo base_url('export/pdf'); ?>" target="_blank" class="btn btn-success">PDF</a>
-                                    <a href="" class="btn btn-success">XLSX</a>
+                                    <a href="<?php echo base_url('export/xlsx') ?>" target="_blank" class="btn btn-success">XLSX</a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -239,6 +240,29 @@
                     </div>
                 </form>
                 <!--END MODAL Export-->
+                <!--MODAL Jual-->
+                 <form>
+                    <div class="modal fade" id="Modal_Export" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Export</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <a href="<?php echo base_url('export/pdf'); ?>" target="_blank" class="btn btn-success">PDF</a>
+                                    <a href="<?php echo base_url('export/xlsx') ?>" target="_blank" class="btn btn-success">XLSX</a>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Jual-->
             </div>
         </div>
 
@@ -316,3 +340,4 @@
 <script src="<?php echo base_url('assets/js/show.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/automatic.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/select.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/selectJual.js'); ?>"></script>

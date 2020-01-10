@@ -17,6 +17,8 @@ class Export extends CI_Controller{
     public function xlsx()
     {
         # code...
+        $data['data'] = $this->export_model->xlsx();
+        $this->load->view('barang/export', $data);
     }
 }
 ?>

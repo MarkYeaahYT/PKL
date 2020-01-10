@@ -6,6 +6,7 @@ class Export_model extends CI_Model{
         # code...
         parent::__construct();
         $this->load->library('pdf');
+        $this->load->helper('url');
     }
 
     public function pdf()
@@ -14,14 +15,21 @@ class Export_model extends CI_Model{
         $pdf = new FPDF('l','mm','A5');
         // membuat halaman baru
         $pdf->AddPage();
+        $pdf->Image(base_url('assets/icon/lgopdf3.png'),5, 5);
+        $pdf->SetFont('Arial','',8);
+        $pdf->Cell(190,7,'',0,1,'C');
+        $pdf->Cell(190,6,'',0,1,'C');
+        $pdf->Cell(170, 2,'JL. GLAGAHSARI NO 46C, UMBULHARJO, YOGYAKARTA',0,1,'');
+        $pdf->Line(10, 30, 200, 30);
+        $pdf->Line(10, 30.5, 200, 30.5);
+
         // setting jenis font yang akan digunakan
-        $pdf->SetFont('Arial','B',16);
+        $pdf->SetFont('Arial','B',14);
         // mencetak string 
-        $pdf->Cell(190,7,'Data Inventaris',0,1,'C');
+        $pdf->Cell(190,20,'Data Inventaris',0,1,'C');
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(190,7,'Alfabank',0,1,'C');
         // Memberikan space kebawah agar tidak terlalu rapat
-        $pdf->Cell(10,7,'',0,1);
+        $pdf->Cell(10,2,'',0,1);
         $pdf->SetFont('Arial','B',10);
         $pdf->Cell(10,6,'No',1,0);
         $pdf->Cell(53,6,'No Inventaris',1,0);
@@ -58,6 +66,8 @@ class Export_model extends CI_Model{
     public function xlsx()
     {
         # code...
+        $query = $this->db->get('barang');
+        return $query->result();
     }
 }
 ?>

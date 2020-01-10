@@ -34,8 +34,8 @@
                 <div class="card" style="background-image: url('<?php echo base_url('assets/icon/back5.jpg'); ?>'); background-size: 100% 100%;color:white ;">
                     <a href="<?php echo base_url('welcome/jmerk'); ?>" style="text-decoration: none">
                         <div class="card-body text-center">
-                            <img src="<?php echo base_url('assets/icon/barang5.png') ?>" alt="" width="60" height="60">
-                            <p class="card-text text-success">Changed</p>
+                            <img src="<?php echo base_url('assets/icon/terjual.png') ?>" alt="" width="60" height="60">
+                            <p class="card-text text-success">Terjual</p>
                             <h3 class="card-text text-success"> <?php  ?> </h3>
                         </div>
                     </a>
