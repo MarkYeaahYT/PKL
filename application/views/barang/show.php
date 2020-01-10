@@ -256,6 +256,7 @@
                                     <a href="<?php echo base_url('export/xlsx') ?>" target="_blank" class="btn btn-success">XLSX</a>
                                 </div>
                                 <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" id="save_jual">Save</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
