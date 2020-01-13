@@ -87,7 +87,7 @@ class Inventory_model extends CI_Model{
          * check jumlah barang normal
          */
         # code...
-        $query = $this->db->query("select * from barang where status = 'normal' ");
+        $query = $this->db->query("select * from barang where status <> 'Rusak' ");
         return $query->num_rows();
     }
 

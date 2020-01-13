@@ -242,21 +242,44 @@
                 <!--END MODAL Export-->
                 <!--MODAL Jual-->
                  <form>
-                    <div class="modal fade" id="Modal_Export" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal_Jual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Export</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Jual</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="<?php echo base_url('export/pdf'); ?>" target="_blank" class="btn btn-success">PDF</a>
-                                    <a href="<?php echo base_url('export/xlsx') ?>" target="_blank" class="btn btn-success">XLSX</a>
+
+                                    <!-- bodyhere -->
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="harga_jual">Harga Jual</label>
+                                            <input type="number" class="form-control" id="harga_jual" placeholder="ex 100000">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="date_jual">Tanggal Jual</label>
+                                            <input type="date" class="form-control" id="date_jual">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="status_jual">Status</label>
+                                            <select name="status" id="status_jual" class="form-control">
+                                                <option value="Normal">Normal</option>
+                                                <option value="Rusak">Rusak</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" id="save_jual">Save</button>
+                                    <button type="button" class="btn btn-primary" id="save_jual">Save</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
