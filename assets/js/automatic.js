@@ -41,23 +41,29 @@ $(document).ready(function () {
     var bln = "";
     var thn = "";
     var no_urut = 0;
-    $.ajax({
-        type: "GET",
-        url: "/alfabank/inventory/incNO",
-        data: "",
-        dataType: "JSON",
-        success: function (r) {
-            no_urut = parseInt(r);
-            no_urut += 1;
-            no_urut = String(no_urut).padStart(4, 0);
-            // console.log(no_urut);
-        }
-    });
+
+    function realtime() {
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/inventory/incNO",
+            data: "",
+            cache: false,
+            dataType: "JSON",
+            success: function (r) {
+                no_urut = parseInt(r);
+                no_urut += 1;
+                no_urut = String(no_urut).padStart(4, 0);
+                // console.log(no_urut);
+            }
+        });
+    }
+
     var no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
     
     // cat
     $('#cat > option[value="NE"]').on('click', function () {
         cat = $(this).val();
+        realtime()
         no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
@@ -65,6 +71,7 @@ $(document).ready(function () {
     });
     $('#cat > option[value="EL"]').on('click', function () {
         cat = $(this).val();
+        realtime()
         no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
@@ -73,6 +80,7 @@ $(document).ready(function () {
     // nama
     $('#nama').keyup(function (e) { 
         nama = $(this).val();
+        realtime()
         no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
@@ -86,10 +94,31 @@ $(document).ready(function () {
         var spl = date.split("-")
         thn = spl[0];
         bln = romawi(spl[1]);
+        realtime()
         
         no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
     })
+
+    // make keep realtime when inputting
+    $('#kondisi').change(function (e) { 
+        e.preventDefault();
+        realtime();
+    });
+
+    $('#harga').keyup(function (e) { 
+        realtime();
+    });
+
+    $('#status').change(function (e) { 
+        e.preventDefault();
+        realtime();
+    });
+
+    $('#ruang').change(function (e) { 
+        e.preventDefault();
+        realtime();
+    });
 
 });

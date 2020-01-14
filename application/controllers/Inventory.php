@@ -55,9 +55,14 @@ class Inventory extends CI_Controller{
 	{
 		# code...
 		$res = $this->inventory_model->incrementNO();
-        $no = $res[0]->no_inventaris;
-        $no = explode("/", $no);
-        echo json_encode($no[5]);
+		if(empty($res)){
+			echo json_encode("0000");
+		}else{
+			$no = $res[0]->no_inventaris;
+			$no = explode("/", $no);
+			echo json_encode($no[5]);
+			
+		}
 	}
 
 }

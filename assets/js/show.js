@@ -127,6 +127,7 @@ $(document).ready(function () {
             type: "GET",
             url: "/alfabank/inventory/incNO",
             data: "",
+            cache: false,
             dataType: "JSON",
             success: function (r) {
                 no_urut = parseInt(r);
@@ -147,7 +148,6 @@ $(document).ready(function () {
                 no_inventarisOK += element;
         });
 
-        console.log(no_inventarisOK);
 
         $.ajax({
             type: "POST",
