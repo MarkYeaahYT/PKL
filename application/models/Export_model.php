@@ -20,13 +20,14 @@ class Export_model extends CI_Model{
         $pdf->Cell(190,7,'',0,1,'C');
         $pdf->Cell(190,6,'',0,1,'C');
         $pdf->Cell(170, 2,'JL. GLAGAHSARI NO 46C, UMBULHARJO, YOGYAKARTA',0,1,'');
-        $pdf->Line(10, 30, 200, 30);
+        $pdf->Cell(170, 6,'WA 0896 7148 1943',0,1,'');
         $pdf->Line(10, 30.5, 200, 30.5);
+        $pdf->Line(10, 31, 200, 31);
 
         // setting jenis font yang akan digunakan
         $pdf->SetFont('Arial','B',14);
         // mencetak string 
-        $pdf->Cell(190,20,'Data Inventaris',0,1,'C');
+        $pdf->Cell(190,12,'Data Inventaris',0,1,'C');
         $pdf->SetFont('Arial','B',12);
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,2,'',0,1);

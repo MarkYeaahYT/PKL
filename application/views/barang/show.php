@@ -273,6 +273,7 @@
                                                 <option value="Normal">Normal</option>
                                                 <option value="Rusak">Rusak</option>
                                             </select>
+                                        <small class="form-text text-muted">status barang saat ini</small>
                                         </div>
                                     </div>
                                     <!-- bodyhereEND -->

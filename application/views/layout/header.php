@@ -27,7 +27,7 @@
 <body>
 
     <div class="navbar navbar-expand-md bg-light sticky-top">
-        <a href="" class="navbar-brand">
+        <a href="/" class="navbar-brand">
             <img src="" alt="">Inventory App
         </a>
     

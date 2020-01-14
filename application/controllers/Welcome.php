@@ -13,11 +13,12 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-		$data['jum_rusak'] = $this->inventory_model->check_jum_rusak();
-		$data['jum_normal'] = $this->inventory_model->check_jum_normal();
-		$data['jumlah_barang'] = $this->inventory_model->jumlah_barang();
-		$data['total_jual'] = $this->jual_model->total_jual();
-		$this->load->view('dashboard', $data);
+		$this->load->view('home');
+	}
+	
+	public function dashboard()
+	{
+		$this->load->view('dashboard');
 	}
 
 	public function rusak()
@@ -37,6 +38,18 @@ class Welcome extends CI_Controller {
 	{
 		# code...
 		$this->load->view('terjual');
+	}
+
+	public function realtime()
+	{
+		# code...
+		$mydata = array(
+			'jnormal' => $this->inventory_model->check_jum_normal(),
+			'jrusak' => $this->inventory_model->check_jum_rusak(),
+			'jbarang' => $this->inventory_model->jumlah_barang(),
+			'tjual' => $this->jual_model->total_jual(),
+		);
+		echo json_encode($mydata);
 	}
 
 }

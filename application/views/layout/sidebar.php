@@ -16,7 +16,7 @@
                 <img class="img-fluid" src=" <?php echo base_url('assets/icon/dashboard.png'); ?> " alt="logo">
             </div>
             <div class="col-sm-2">
-                <a href="<?php echo base_url('welcome'); ?>">Dashboard</a>
+                <a href="<?php echo base_url('welcome/dashboard'); ?>">Dashboard</a>
             </div>
         </div>
         <hr>
