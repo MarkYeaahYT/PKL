@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Inventory </title>
+    <title>Data Bursa Kerja </title>
     <script src=" <?php echo base_url('assets/bootstrap/js/jquery.min.js'); ?> "></script>
     <script src=" <?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?> "></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css'); ?>">
@@ -28,7 +28,7 @@
 
     <div class="navbar navbar-expand-md bg-light sticky-top">
         <a href="/" class="navbar-brand">
-            <img src="" alt="">Inventory App
+            <img src="" alt="">Data Bursa Kerja App
         </a>
     
         <div class="navbar-nav nav ml-auto">
