@@ -23,11 +23,22 @@
     <script src="<?php echo base_url('assets/bootstrap/js/jquery.dataTables.js'); ?>"></script>
     <script src="<?php echo base_url('assets/bootstrap/js/dataTables.bootstrap4.js'); ?>"></script>
 
+    <!-- Scrollbar Custom Css -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/js/jquery.mCustomScrollbar.min.css'); ?>">
+
+    <!-- Awesome js -->
+    <script src="<?php echo base_url('assets/bootstrap/js/solid.js') ?>"></script>
+    <script src="<?php echo base_url('assets/bootstrap/js/fontawesome.js') ?>"></script>
 </head>
 <body>
 
     <div class="navbar navbar-expand-md bg-light sticky-top">
-        <a href="/" class="navbar-brand">
+        <button type="button" class="btn btn-info" id="sidebarCollapse">
+            <i class="fas fa-align-left"></i>
+            Menu
+        </button>
+
+        <a href="/" class="ml-2 navbar-brand">
             <img src="" alt="">Data Bursa Kerja App
         </a>
     

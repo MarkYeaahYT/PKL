@@ -1,12 +1,13 @@
-<div class="col-md-10 border pt-4 pr-4 col-sm-8">
-    <div class="container border">
-        <div class="row bg-light">
+<div id="content">
+    <div class="border pt-4 pr-4">
+    <!-- <div class="container border"> -->
+        <div class="pl-4 row bg-light">
             <h3 class="display-7 p-3">Data Alumni</h3>
         </div>
         <div class="row pt-4 pb-4">
-            <div class="container">
+            <div class="container-fluid">
 
-                    <div class="float-left">
+                    <div class="pl-4 float-left">
                         <button id="tambah" type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
                             <img src="<?php echo base_url('assets/icon/add.png'); ?>" width="25" height="25" alt="" srcset="">
                         Tambah Data
@@ -20,7 +21,7 @@
                         </button>
                     </div>
 
-                <!-- Modal -->
+                <!-- Modal Add-->
                 <form>
                     <div class="modal fade" id="myModal" role="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -32,68 +33,93 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                        <div class="form-group">
-                                            <div class="col-md-9">
-                                                <label for="no_inventaris">No Inventaris</label>
-                                                <input type="text" class="form-control" id="no_inventaris" readonly>
-                                                <small class="form-text text-muted">No inventaris barang</small>
-                                            </div>
-                                        </div>
+                                        <!-- Body -->
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="nama">Nama</label>
-                                                <input type="text" class="form-control" id="nama" placeholder="Nama Barang">
+                                                <input type="text" class="form-control" id="nama">
+                                                <small class="form-text text-muted"></small>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="cat">Katagori</label>
-                                                <select name="cat" id="cat" class="form-control">
-                                                    <option value="NE">NE</option>
-                                                    <option value="EL">EL</option>
+                                                <label for="ttl">TTL</label>
+                                                <input type="text" class="form-control" id="ttl" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="alamat">Alamat</label>
+                                                <input type="text" class="form-control" id="alamat" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="program">Program</label>
+                                                <select name="program" id="program" class="form-control is-valid">
+                                                    <option value="1 Tahun">1 Tahun</option>
+                                                    <option value="Profesi 6 Bulan">Profesi 6 Bulan</option>
+                                                    <option value="Intensif">Intensif</option>
+                                                    <option value="Privat">Privat</option>
                                                 </select>
+                                                <div class="valid-feedback">
+                                                    
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="kondisi">Kondisi</label>
-                                                <select name="kondis" id="kondisi" class="form-control">
-                                                    <option value="Baru">Baru</option>
-                                                    <option value="Second">Second</option>
-                                                </select>
+                                                <label for="tahun_lulus">Tahun Lulus</label>
+                                                <input type="number" placeholder="YYYY" class="form-control" id="tahun_lulus" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="tanggalbeli">Tanggal Beli</label>
-                                                <input type="date" placeholder="yyyymmdd" class="form-control" id="tanggalbeli" >
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9">
-                                                <label for="harga">Harga</label>
-                                                <input type="number" min="0" class="form-control" id="harga" placeholder="example: 100000">
-                                                <small class="form-text text-muted">Harga</small>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9">
-                                                <label for="namabarang">Status</label>
+                                                <label for="status">Status</label>
                                                 <select name="status" id="status" class="form-control">
-                                                    <option value="Normal">Normal</option>
-                                                    <option value="Rusak">Rusak</option>
+                                                    <option value="Melamar">Melamar</option>
+                                                    <option value="Bekerja">Bekerja</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="ruang">Ruang</label>
-                                                <!-- <input type="text" class="form-control" id="ruang"> -->
-                                                <select name="ruang" id="ruang" class="form-control">
-                                                    <!-- JS process -->
-                                                </select>
+                                                <label for="tanggal_mulai">Tanggal Mulai</label>
+                                                <input type="date" class="form-control" id="tanggal_mulai" placeholder="">
+                                                <small class="form-text text-muted"></small>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="posisi_pekerjan">Posisi Pekejaan</label>
+                                                <input type="text" class="form-control" id="posisi_pekerjan" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="perusahaan_penerima">Perusahaan Penerima</label>
+                                                <input type="text" class="form-control" id="perusahaan_penerima" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="alamat_perusahaan">Alamat Perusahaan</label>
+                                                <input type="text" class="form-control" id="alamat_perusahaan" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="no_hp">No HP</label>
+                                                <input type="number" class="form-control" id="no_hp" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="ket">Ketarangan</label>
+                                                <input type="text" class="form-control" id="ket" placeholder="">
+                                            </div>
+                                        </div>
+                                        <!-- EndBody -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -240,13 +266,13 @@
                     </div>
                 </form>
                 <!--END MODAL Export-->
-                <!--MODAL Jual-->
+                <!--MODAL 1 Tahun-->
                  <form>
-                    <div class="modal fade" id="Modal_Jual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="Modal_Thn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Jual</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">1 Tahun</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -254,40 +280,140 @@
                                 <div class="modal-body">
 
                                     <!-- bodyhere -->
+                                    
                                     <div class="form-group">
                                         <div class="col-md-9">
-                                            <label for="harga_jual">Harga Jual</label>
-                                            <input type="number" class="form-control" id="harga_jual" placeholder="ex 100000">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="date_jual">Tanggal Jual</label>
-                                            <input type="date" class="form-control" id="date_jual">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="status_jual">Status</label>
-                                            <select name="status" id="status_jual" class="form-control">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Rusak">Rusak</option>
+                                            <label for="jurusan_thn">Jurusan</label>
+                                            <select name="jurusan_thn" id="jurusan_thn" class="form-control">
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Perbankan">Perbankan</option>
+                                                <option value="Fotografi & Desain Grafis">Fotografi & Desain Grafis</option>
                                             </select>
-                                        <small class="form-text text-muted">status barang saat ini</small>
                                         </div>
                                     </div>
                                     <!-- bodyhereEND -->
                                     
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" id="save_jual">Save</button>
+                                    <button type="button" class="btn btn-primary" id="save_thn">Save</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-                <!--END MODAL Jual-->
+                <!--END MODAL 1 Tahun-->
+                <!--MODAL Profesi 6 bln-->
+                 <form>
+                    <div class="modal fade" id="Modal_Bln" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Profesi 6 Bulan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_bln">Jurusan</label>
+                                            <select name="jurusan_bln" id="jurusan_bln" class="form-control">
+                                                <option value="Multimedia Creator">Multimedia Creator</option>
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Digital Marketing">Digital Marketing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_bln">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Profesi 6 bln-->
+                <!--MODAL Intensif-->
+                 <form>
+                    <div class="modal fade" id="Modal_Itf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Intensif</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_itf">Jurusan</label>
+                                            <select name="jurusan_itf" id="jurusan_itf" class="form-control">
+                                                <option value="Prof. Admin">Prof. Admin</option>
+                                                <option value="Prof. Office">Prof. Office</option>
+                                                <option value="Desain Grafis">Desain Grafis</option>
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Teknisi Komputer & Jaringan">Teknisi Komputer & Jaringan</option>
+                                                <option value="Akuntansi">Akuntansi</option>
+                                                <option value="Komputer Akuntansi">Komputer Akuntansi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_bln">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Intensif-->
+                <!--MODAL Privat-->
+                 <form>
+                    <div class="modal fade" id="Modal_Prv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Privat</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_prv">Jurusan</label>
+                                            <input type="text" class="form-control" id="jurusan_prv" placeholder="">
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_prv">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Privat-->
             </div>
         </div>
 
@@ -298,16 +424,18 @@
                     <thead>
                         <tr class="bg-light">
                             <th>No</th>
-                            <!-- <th>Kode Barang</th> -->
-                            <th>No Inventaris</th>
                             <th>Nama</th>
-                            <th>Kategori</th>
-                            <th>Kondisi</th>
-                            <th>Tanggal Beli</th>
-                            <th>Harga</th>
+                            <th>TTL</th>
+                            <th>Alamat</th>
+                            <th>Program</th>
+                            <th>Tahun Lulus</th>
                             <th>Status</th>
-                            <th>Ruang</th>
-                            <th>Action</th>
+                            <th>Mulai Tanggal</th>
+                            <th>Posisi Pekerjaan</th>
+                            <th>Perusahaan Penerima</th>
+                            <th>Alamat Perusahaan</th>
+                            <th>No Hp</th>
+                            <th>Ket</th>
                         </tr>
                     </thead>
                     <tbody id="show_data">
@@ -321,6 +449,26 @@
     </div>
 </div>
 
+<script>$('#mytable').DataTable();</script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
 <!-- <script>
     var table = $('#mytable').DataTable({
         
@@ -362,7 +510,4 @@
           });
     })
 </script> -->
-<script src="<?php //echo base_url('assets/js/show.js'); ?>"></script>
-<script src="<?php //echo base_url('assets/js/automatic.js'); ?>"></script>
-<script src="<?php //echo base_url('assets/js/select.js'); ?>"></script>
-<script src="<?php //echo base_url('assets/js/selectJual.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/program_select.js'); ?>"></script>
