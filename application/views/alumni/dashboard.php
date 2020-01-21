@@ -1,4 +1,8 @@
-<div class="col-md-10 pt-5 col-sm-8 border">
+<div class="pt-3 border">
+        <div class="pl-4 row bg-light">
+            <h3 class="display-7 ">Dashboard</h3>
+        </div>
+        <hr>
     <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
@@ -47,3 +51,6 @@
 </div>
 
 <!-- <script src="<?php //echo base_url('assets/js/realtimeDashboard.js'); ?>"></script> -->
+<script>
+    $('#content').css('width', '100%');
+</script>

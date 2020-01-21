@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $(".modal").css('overflow-y', 'auto');
 
     // Handle Export
     $('#export').on('click', function () {

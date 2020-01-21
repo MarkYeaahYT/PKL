@@ -1,9 +1,10 @@
-<div id="content">
-    <div class="border pt-4 pr-4">
+
+    <div class="border pt-2 pr-4">
     <!-- <div class="container border"> -->
         <div class="pl-4 row bg-light">
             <h3 class="display-7 p-3">Data Alumni</h3>
         </div>
+        
         <div class="row pt-4 pb-4">
             <div class="container-fluid">
 
@@ -56,15 +57,14 @@
                                         <div class="form-group">
                                             <div class="col-md-9">
                                                 <label for="program">Program</label>
+                                                <input type="text" class="form-control" id="programplaceholder" readonly>
+                                                <br>
                                                 <select name="program" id="program" class="form-control is-valid">
                                                     <option value="1 Tahun">1 Tahun</option>
                                                     <option value="Profesi 6 Bulan">Profesi 6 Bulan</option>
                                                     <option value="Intensif">Intensif</option>
                                                     <option value="Privat">Privat</option>
                                                 </select>
-                                                <div class="valid-feedback">
-                                                    
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -373,7 +373,7 @@
                                     
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary" id="save_bln">Save</button>
+                                    <button type="button" class="btn btn-primary" id="save_itf">Save</button>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -447,28 +447,8 @@
         </div>
 
     </div>
-</div>
 
 <script>$('#mytable').DataTable();</script>
-<script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
-
-            $('#dismiss, .overlay').on('click', function () {
-                $('#sidebar').removeClass('active');
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').addClass('active');
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-        });
-    </script>
 <!-- <script>
     var table = $('#mytable').DataTable({
         
@@ -510,4 +490,4 @@
           });
     })
 </script> -->
-<script src="<?php echo base_url('assets/js/program_select.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/alumni/program_select.js'); ?>"></script>
