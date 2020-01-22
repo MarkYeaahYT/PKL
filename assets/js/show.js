@@ -183,6 +183,6 @@ $(document).ready(function () {
         $('#status').val("");
         $('#ruang').val("");
 
-        $('#myModal').modal('hide');
+        // $('#myModal').modal('hide');
     });
 });

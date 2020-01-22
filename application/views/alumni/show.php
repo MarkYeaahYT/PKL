@@ -42,10 +42,14 @@
                                                 <small class="form-text text-muted"></small>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-md-9">
-                                                <label for="ttl">TTL</label>
-                                                <input type="text" class="form-control" id="ttl" placeholder="">
+                                        <div class="form-row">
+                                            <div class="form-group col-md-5 ml-3">
+                                                <label for="te_l">TTL</label>
+                                                <input type="text" class="form-control" id="te_l" placeholder="">
+                                            </div>
+                                            <div class="form-group col-md-5">
+                                                <label for="ta_l">TTL</label>
+                                                <input type="date" class="form-control" id="ta_l" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -436,6 +440,7 @@
                             <th>Alamat Perusahaan</th>
                             <th>No Hp</th>
                             <th>Ket</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="show_data">
@@ -448,39 +453,45 @@
 
     </div>
 
-<script>$('#mytable').DataTable();</script>
-<!-- <script>
+<script>
     var table = $('#mytable').DataTable({
-        
         ajax: {
-            url: '',
+            url: '/alfabank/alumni/data_xhr',
             dataSrc: ''
         },
         columns: [
-            {data: 'kode_barang'},
-            {data: 'no_inventaris'},
+            {data: 'id'},
             {data: 'nama'},
-            {data: 'cat'},
-            {data: 'kondisi'},
-            {data: 'tanggal_beli'},
             {render: function(data, type, row){
-                return 'Rp '+row.harga
+                return row.te_lahir+" "+row.ta_lahir;
             }},
+            {data: 'alamat'},
+            {data: 'program'},
+            {data: 'tahun_lulus'},
             {data: 'status'},
-            {data: 'ruang'},
+            {data: 'mulai_tanggal'},
+            {data: 'posisi_pekerjaan'},
+            {data: 'perusahaan_penerima'},
+            {data: 'alamat_perusahaan'},
+            {data: 'no_hp'},
+            {data: 'ket'},
             {render: function(data, type, row){
                 return '<a href="javascript:void(0);" class="btn btn-info item-edit"'+
-                        'data-kode_barang="'+row.kode_barang+
-                        '"data-no_inventaris="'+row.no_inventaris+
-                        '"data-nama="'+row.nama+
-                        '"data-cat="'+row.cat+
-                        '"data-kondisi="'+row.kondisi+
-                        '"data-tanggal_beli="'+row.tanggal_beli+
-                        '"data-harga="'+row.harga+
+                        'data-nama="'+row.nama+
+                        '"data-te_lahir="'+row.te_lahir+
+                        '"data-ta_lahir="'+row.ta_lahir+
+                        '"data-alamat="'+row.alamat+
+                        '"data-program="'+row.program+
+                        '"data-tahun_lulus="'+row.tahun_lulus+
                         '"data-status="'+row.status+
-                        '"data-ruang="'+row.ruang+
+                        '"data-mulai_tanggal="'+row.mulai_tanggal+
+                        '"data-posisi_pekerjaan="'+row.posisi_pekerjaan+
+                        '"data-perusahaan_penerima="'+row.perusahaan_penerima+
+                        '"data-alamat_perusahaan="'+row.alamat_perusahaan+
+                        '"data-no_hp="'+row.no_hp+
+                        '"data-ket="'+row.ket+
                         '" >Edit</a>'+
-                        '<a href="javascript:void(0);" class="btn btn-danger item-del" data-kode_barang="'+row.kode_barang+'">Del</a>'
+                        '<a href="javascript:void(0);" class="btn btn-danger item-del" data-id="'+row.id+'">Del</a>'
             }}
         ]
     });
@@ -489,5 +500,6 @@
              cell.innerHTML = i + 1;
           });
     })
-</script> -->
+</script>
 <script src="<?php echo base_url('assets/js/alumni/program_select.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/alumni/ade_inshow.js'); ?>"></script>

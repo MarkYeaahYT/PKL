@@ -65,6 +65,20 @@ class Inventory extends CI_Controller{
 		}
 	}
 
+	public function suggestion()
+    {
+		/**
+         * This suggestion used for when we input same
+         * name so we can suggest and auto fill with
+         * same information
+		 * 
+         * Efficient YES
+         */
+		# code...
+		$data = $this->inventory_model->suggestion();
+		echo json_encode($data);
+    }
+
 }
 
 ?>

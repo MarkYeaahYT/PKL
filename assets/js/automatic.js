@@ -91,7 +91,7 @@ $(document).ready(function () {
     $('#tanggalbeli').change(function(){
         var date = "";
         date += $(this).val();
-        var spl = date.split("-")
+        var spl = date.split("-");
         thn = spl[0];
         bln = romawi(spl[1]);
         realtime()
@@ -105,20 +105,82 @@ $(document).ready(function () {
     $('#kondisi').change(function (e) { 
         e.preventDefault();
         realtime();
+        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        $('#no_inventaris').val(no_invent);
     });
-
+    
     $('#harga').keyup(function (e) { 
         realtime();
+        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        $('#no_inventaris').val(no_invent);
     });
-
+    
     $('#status').change(function (e) { 
         e.preventDefault();
         realtime();
+        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        $('#no_inventaris').val(no_invent);
     });
-
+    
     $('#ruang').change(function (e) { 
         e.preventDefault();
         realtime();
+        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        $('#no_inventaris').val(no_invent);
+    });
+
+    /**
+     * Handle suggestion
+     * 
+     */
+    var dataauto;
+
+    // keyup #nama
+    $('#nama').keyup(function (e) { 
+        var namasuggestion = $(this).val();
+        $.ajax({
+            type: "POST",
+            url: "/alfabank/inventory/suggestion",
+            data: {
+                namasuggestion: namasuggestion
+            },
+            dataType: "JSON",
+            success: function (response) {
+                if(response.length > 0){
+                    $('#nama').addClass('is-valid');
+                    dataauto = response;   
+                }
+
+                if(response == "empty"){
+                    $('#nama').removeClass('is-valid');
+                }
+            }
+        });
+    });
+
+    // change element suggestion to pointer
+    $('.autocomplete').css('cursor', 'pointer');
+
+    // handle click .autocomplete
+    $('.autocomplete').on('click', function () {
+        dataauto.forEach(element => {
+            $('#cat').val(element.cat);
+            $('#kondisi').val(element.kondisi);
+            $('#tanggalbeli').val(element.tanggal_beli);
+            $('#harga').val(element.harga);
+            $('#status').val(element.status);
+            $('#ruang').val(element.ruang);
+        });
+        cat = dataauto[0].cat;
+        var date = "";
+        date += dataauto[0].tanggal_beli;
+        var spl = date.split("-");
+        thn = spl[0];
+        bln = romawi(spl[1]);
+        realtime();
+        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        $('#no_inventaris').val(no_invent);
+
     });
 
 });

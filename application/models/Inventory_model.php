@@ -110,6 +110,28 @@ class Inventory_model extends CI_Model{
         return $data->result();
     }
 
+    public function suggestion()
+    {
+        /**
+         * This suggestion used for when we input same
+         * name so we can suggest and auto fill with
+         * same information
+         * 
+         * Efficient YES
+         */
+        # code...
+        $nama = $this->input->post('namasuggestion');
+        $this->db->where('nama', $nama);
+        $this->db->limit(1);
+        $query = $this->db->get('barang');
+        if($query->num_rows() > 0){
+            return $query->result();
+        }else{
+            return "empty";
+        }
+
+    }
+
 }
 
 ?>

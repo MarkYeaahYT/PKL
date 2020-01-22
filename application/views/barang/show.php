@@ -43,6 +43,9 @@
                                             <div class="col-md-9">
                                                 <label for="nama">Nama</label>
                                                 <input type="text" class="form-control" id="nama" placeholder="Nama Barang">
+                                                <div class="valid-feedback">
+                                                    <p class="autocomplete">Found same data click to autocomplete</p>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
