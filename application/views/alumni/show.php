@@ -138,84 +138,111 @@
 
                 <!-- MODAL EDIT -->
                 <form>
-                    <div class="modal fade" id="Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-md" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <div class="col-md-9">
-                                        <label for="no_inventaris_edit">No Inventaris</label>
-                                        <input hidden type="text" class="form-control" id="kode_barang_edit">
-                                        <input type="text" class="form-control" id="no_inventaris_edit" readonly>
-                                        <small class="form-text text-muted">No inventaris barang</small>
-                                    </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="nama_edit">Nama</label>
-                                            <input type="text" class="form-control" id="nama_edit" placeholder="Nama Barang">
+                    <div class="modal fade" id="Modal_Edit" role="dialog" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="ModalLabel">Edit</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                        <!-- Body -->
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="nama_edit">Nama</label>
+                                                <input type="text" class="form-control" id="nama_edit">
+                                                <input type="hidden" class="form-control" id="id_edit">
+                                                <small class="form-text text-muted"></small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="cat_edit">Katagori</label>
-                                            <select name="cat_edit" id="cat_edit" class="form-control">
-                                                <option value="NE">NE</option>
-                                                <option value="EL">EL</option>
-                                            </select>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-5 ml-3">
+                                                <label for="te_l_edit">TTL</label>
+                                                <input type="text" class="form-control" id="te_l_edit" placeholder="">
+                                            </div>
+                                            <div class="form-group col-md-5">
+                                                <label for="ta_l_edit">TTL</label>
+                                                <input type="date" class="form-control" id="ta_l_edit" placeholder="">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="kondisi_edit">Kondisi</label>
-                                            <select name="kondis" id="kondisi_edit" class="form-control">
-                                                <option value="Baru">Baru</option>
-                                                <option value="Second">Second</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="alamat_edit">Alamat</label>
+                                                <input type="text" class="form-control" id="alamat_edit" placeholder="">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="tanggalmasuk_edit">Tanggal Masuk</label>
-                                            <input type="date" placeholder="yyyymmdd" class="form-control" id="tanggalbeli_edit" >
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="programplaceholder_edit">Program</label>
+                                                <input type="text" class="form-control" id="programplaceholder_edit" readonly>
+                                                <br>
+                                                <select name="program_edit" id="program_edit" class="form-control">
+                                                    <option value="1 Tahun">1 Tahun</option>
+                                                    <option value="Profesi 6 Bulan">Profesi 6 Bulan</option>
+                                                    <option value="Intensif">Intensif</option>
+                                                    <option value="Privat">Privat</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="harga_edit">Harga</label>
-                                            <input type="text" class="form-control" id="harga_edit" placeholder="example: 100000">
-                                            <small class="form-text text-muted">Harga</small>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="tahun_lulus_edit">Tahun Lulus</label>
+                                                <input type="number" placeholder="YYYY" class="form-control" id="tahun_lulus_edit" >
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="status_edit">Status</label>
-                                            <select name="status" id="status_edit" class="form-control">
-                                                <option value="Normal">Normal</option>
-                                                <option value="Rusak">Rusak</option>
-                                                <option value="Dijual">Dijual</option>
-                                            </select>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="status_edit">Status</label>
+                                                <select name="status" id="status_edit" class="form-control">
+                                                    <option value="Melamar">Melamar</option>
+                                                    <option value="Bekerja">Bekerja</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-9">
-                                            <label for="ruang_edit">Ruang</label>
-                                            <!-- <input type="text" class="form-control" id="ruang_edit" placeholder="ruang"> -->
-                                            <select name="ruang_edit" id="ruang_edit" class="form-control">
-                                                <!-- JS process -->
-                                            </select>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="tanggal_mulai_edit">Tanggal Mulai</label>
+                                                <input type="date" class="form-control" id="tanggal_mulai_edit" placeholder="">
+                                                <small class="form-text text-muted"></small>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="posisi_pekerjan_edit">Posisi Pekejaan</label>
+                                                <input type="text" class="form-control" id="posisi_pekerjan_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="perusahaan_penerima_edit">Perusahaan Penerima</label>
+                                                <input type="text" class="form-control" id="perusahaan_penerima_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="alamat_perusahaan_edit">Alamat Perusahaan</label>
+                                                <input type="text" class="form-control" id="alamat_perusahaan_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="no_hp_edit">No HP</label>
+                                                <input type="number" class="form-control" id="no_hp_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="ket_edit">Ketarangan</label>
+                                                <input type="text" class="form-control" id="ket_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <!-- EndBody -->
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" type="submit" id="btn_update" class="btn btn-primary">Update</button>
+                                    <button type="button" type="submit" id="btn_edit" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -307,6 +334,43 @@
                     </div>
                 </form>
                 <!--END MODAL 1 Tahun-->
+                <!--MODAL 1 Tahun EDIT-->
+                 <form>
+                    <div class="modal fade" id="Modal_Thn_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">1 Tahun</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_thn_edit">Jurusan</label>
+                                            <select name="jurusan_thn_edit" id="jurusan_thn_edit" class="form-control">
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Perbankan">Perbankan</option>
+                                                <option value="Fotografi & Desain Grafis">Fotografi & Desain Grafis</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_thn_edit">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL 1 Tahun EDIT-->
                 <!--MODAL Profesi 6 bln-->
                  <form>
                     <div class="modal fade" id="Modal_Bln" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -344,6 +408,43 @@
                     </div>
                 </form>
                 <!--END MODAL Profesi 6 bln-->
+                <!--MODAL Profesi 6 bln EDIT-->
+                 <form>
+                    <div class="modal fade" id="Modal_Bln_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Profesi 6 Bulan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_bln_edit">Jurusan</label>
+                                            <select name="jurusan_bln_edit" id="jurusan_bln_edit" class="form-control">
+                                                <option value="Multimedia Creator">Multimedia Creator</option>
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Digital Marketing">Digital Marketing</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_bln_edit">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Profesi 6 bln EDIT-->
                 <!--MODAL Intensif-->
                  <form>
                     <div class="modal fade" id="Modal_Itf" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -385,6 +486,47 @@
                     </div>
                 </form>
                 <!--END MODAL Intensif-->
+                <!--MODAL Intensif EDIT-->
+                 <form>
+                    <div class="modal fade" id="Modal_Itf_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Intensif</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_itf_edit">Jurusan</label>
+                                            <select name="jurusan_itf_edit" id="jurusan_itf_edit" class="form-control">
+                                                <option value="Prof. Admin">Prof. Admin</option>
+                                                <option value="Prof. Office">Prof. Office</option>
+                                                <option value="Desain Grafis">Desain Grafis</option>
+                                                <option value="Web Programmer">Web Programmer</option>
+                                                <option value="Teknisi Komputer & Jaringan">Teknisi Komputer & Jaringan</option>
+                                                <option value="Akuntansi">Akuntansi</option>
+                                                <option value="Komputer Akuntansi">Komputer Akuntansi</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_itf_edit">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Intensif EDIT-->
                 <!--MODAL Privat-->
                  <form>
                     <div class="modal fade" id="Modal_Prv" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -418,6 +560,39 @@
                     </div>
                 </form>
                 <!--END MODAL Privat-->
+                <!--MODAL Privat EDIT-->
+                 <form>
+                    <div class="modal fade" id="Modal_Prv_edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Privat</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+
+                                    <!-- bodyhere -->
+                                    
+                                    <div class="form-group">
+                                        <div class="col-md-9">
+                                            <label for="jurusan_prv_edit">Jurusan</label>
+                                            <input type="text" class="form-control" id="jurusan_prv_edit" placeholder="">
+                                        </div>
+                                    </div>
+                                    <!-- bodyhereEND -->
+                                    
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" id="save_prv_edit">Save</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!--END MODAL Privat EDIT-->
             </div>
         </div>
 
@@ -432,6 +607,7 @@
                             <th>TTL</th>
                             <th>Alamat</th>
                             <th>Program</th>
+                            <th>Jurusan</th>
                             <th>Tahun Lulus</th>
                             <th>Status</th>
                             <th>Mulai Tanggal</th>
@@ -467,6 +643,7 @@
             }},
             {data: 'alamat'},
             {data: 'program'},
+            {data: 'jurusan'},
             {data: 'tahun_lulus'},
             {data: 'status'},
             {data: 'mulai_tanggal'},
@@ -478,10 +655,12 @@
             {render: function(data, type, row){
                 return '<a href="javascript:void(0);" class="btn btn-info item-edit"'+
                         'data-nama="'+row.nama+
+                        '"data-id="'+row.id+
                         '"data-te_lahir="'+row.te_lahir+
                         '"data-ta_lahir="'+row.ta_lahir+
                         '"data-alamat="'+row.alamat+
                         '"data-program="'+row.program+
+                        '"data-jurusan="'+row.jurusan+
                         '"data-tahun_lulus="'+row.tahun_lulus+
                         '"data-status="'+row.status+
                         '"data-mulai_tanggal="'+row.mulai_tanggal+

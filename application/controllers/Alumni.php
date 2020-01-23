@@ -44,6 +44,7 @@ class Alumni extends CI_Controller{
     public function edit()
     {
         # code...
+        // $data = $this->alumni_model->;
     }
 
 }

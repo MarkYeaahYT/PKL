@@ -41,6 +41,21 @@
                 </a>
             </div>
         </li>
+        <li>
+            <hr>
+            <div class="container fluid">
+                <a href="<?php echo base_url('alumni/#'); ?>">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="<?php echo base_url('assets/icon/data.png'); ?>" width="20" height="20" alt="" srcset="">
+                        </div>
+                        <div class="col-md-1">
+                            Program
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
         
     </ul>
 </nav>
