@@ -44,11 +44,11 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-5 ml-3">
-                                                <label for="te_l">TTL</label>
+                                                <label for="te_l">Tempat Lahir</label>
                                                 <input type="text" class="form-control" id="te_l" placeholder="">
                                             </div>
                                             <div class="form-group col-md-5">
-                                                <label for="ta_l">TTL</label>
+                                                <label for="ta_l">Tanggal Lahir</label>
                                                 <input type="date" class="form-control" id="ta_l" placeholder="">
                                             </div>
                                         </div>
@@ -56,6 +56,13 @@
                                             <div class="col-md-9">
                                                 <label for="alamat">Alamat</label>
                                                 <input type="text" class="form-control" id="alamat" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="no_hp">No Tlp</label>
+                                                <input type="number" class="form-control" id="no_hp" placeholder="">
+                                                <small class="form-text text-muted">no telepon murid</small>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -81,22 +88,28 @@
                                             <div class="col-md-9">
                                                 <label for="status">Status</label>
                                                 <select name="status" id="status" class="form-control">
-                                                    <option value="Melamar">Melamar</option>
-                                                    <option value="Bekerja">Bekerja</option>
+                                                    <option value="Sudah Bekerja">Sudah Bekerja</option>
+                                                    <option value="Mencari Pekerjaan">Mencari Pekerjaan</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="tanggal_mulai">Tanggal Mulai</label>
+                                                <label for="tanggal_mulai">Tanggal Mulai Kerja</label>
                                                 <input type="date" class="form-control" id="tanggal_mulai" placeholder="">
                                                 <small class="form-text text-muted"></small>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="posisi_pekerjan">Posisi Pekejaan</label>
+                                                <label for="posisi_pekerjan">Jabatan Pekerjaan</label>
                                                 <input type="text" class="form-control" id="posisi_pekerjan" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="gaji">Gaji Pertama</label>
+                                                <input type="number" class="form-control" id="gaji" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -113,8 +126,9 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="no_hp">No HP</label>
-                                                <input type="number" class="form-control" id="no_hp" placeholder="">
+                                                <label for="no_tlp_perusahaan">No Tlp</label>
+                                                <input type="number" class="form-control" id="no_tlp_perusahaan" placeholder="">
+                                                <small class="form-text text-muted">no telepon perusahaan</small>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -175,6 +189,13 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
+                                                <label for="no_hp_edit">No Tlp</label>
+                                                <input type="number" class="form-control" id="no_hp_edit" placeholder="">
+                                                <small class="form-text text-muted">no telepon murid</small>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
                                                 <label for="programplaceholder_edit">Program</label>
                                                 <input type="text" class="form-control" id="programplaceholder_edit" readonly>
                                                 <br>
@@ -196,8 +217,8 @@
                                             <div class="col-md-9">
                                                 <label for="status_edit">Status</label>
                                                 <select name="status" id="status_edit" class="form-control">
-                                                    <option value="Melamar">Melamar</option>
-                                                    <option value="Bekerja">Bekerja</option>
+                                                    <option value="Mencari Pekerjaan">Mencari Pekerjaan</option>
+                                                    <option value="Sudah Bekerja">Sudah Bekerja</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -210,8 +231,14 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="posisi_pekerjan_edit">Posisi Pekejaan</label>
+                                                <label for="posisi_pekerjan_edit">Jabatan Pekerjaan</label>
                                                 <input type="text" class="form-control" id="posisi_pekerjan_edit" placeholder="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-9">
+                                                <label for="gaji_edit">Gaji Pertama</label>
+                                                <input type="number" class="form-control" id="gaji_edit" placeholder="">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -228,8 +255,9 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-9">
-                                                <label for="no_hp_edit">No HP</label>
-                                                <input type="number" class="form-control" id="no_hp_edit" placeholder="">
+                                                <label for="no_tlp_perusahaan_edit">No Tlp</label>
+                                                <input type="number" class="form-control" id="no_tlp_perusahaan_edit" placeholder="">
+                                                <small class="form-text text-muted">no telepon perusahaan</small>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -256,7 +284,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Delete Barang</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Delete </h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -265,7 +293,7 @@
                                     <strong>Are you sure to delete this record?</strong>
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="hidden" name="code_barang_delete" id="code_barang_delete" class="form-control">
+                                    <input type="hidden" name="id_delete" id="id_delete" class="form-control">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                     <button type="button" type="submit" id="btn_delete" class="btn btn-primary">Yes</button>
                                 </div>
@@ -606,15 +634,17 @@
                             <th>Nama</th>
                             <th>TTL</th>
                             <th>Alamat</th>
+                            <th>No Tlp</th>
                             <th>Program</th>
                             <th>Jurusan</th>
                             <th>Tahun Lulus</th>
                             <th>Status</th>
                             <th>Mulai Tanggal</th>
                             <th>Posisi Pekerjaan</th>
+                            <th>Gaji Pertama</th>
                             <th>Perusahaan Penerima</th>
                             <th>Alamat Perusahaan</th>
-                            <th>No Hp</th>
+                            <th>No Tlp</th>
                             <th>Ket</th>
                             <th>Action</th>
                         </tr>
@@ -642,15 +672,19 @@
                 return row.te_lahir+" "+row.ta_lahir;
             }},
             {data: 'alamat'},
+            {data: 'no_hp'},
             {data: 'program'},
             {data: 'jurusan'},
             {data: 'tahun_lulus'},
             {data: 'status'},
             {data: 'mulai_tanggal'},
             {data: 'posisi_pekerjaan'},
+            {render: function(data, type, row){
+                return 'Rp '+row.gaji_pertama;
+            }},
             {data: 'perusahaan_penerima'},
             {data: 'alamat_perusahaan'},
-            {data: 'no_hp'},
+            {data: 'no_tlp_perusahaan'},
             {data: 'ket'},
             {render: function(data, type, row){
                 return '<a href="javascript:void(0);" class="btn btn-info item-edit"'+
@@ -669,6 +703,8 @@
                         '"data-alamat_perusahaan="'+row.alamat_perusahaan+
                         '"data-no_hp="'+row.no_hp+
                         '"data-ket="'+row.ket+
+                        '"data-no_tlp_perusahaan="'+row.no_tlp_perusahaan+
+                        '"data-gaji_pertama="'+row.gaji_pertama+
                         '" >Edit</a>'+
                         '<a href="javascript:void(0);" class="btn btn-danger item-del" data-id="'+row.id+'">Del</a>'
             }}
@@ -682,3 +718,4 @@
 </script>
 <script src="<?php echo base_url('assets/js/alumni/program_select.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/alumni/ade_inshow.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/alumni/disablefeature.js'); ?>"></script>

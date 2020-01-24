@@ -39,12 +39,15 @@ class Alumni extends CI_Controller{
     public function del()
     {
         # code...
+        $data = $this->alumni_model->del();
+        echo json_encode($data);
     }
 
     public function edit()
     {
         # code...
-        // $data = $this->alumni_model->;
+        $data = $this->alumni_model->edit();
+        echo json_encode($data);
     }
 
 }
