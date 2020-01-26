@@ -1,5 +1,5 @@
 
-    <div class="border pt-2 pr-4">
+    <div class="border pr-4">
     <!-- <div class="container border"> -->
         <div class="pl-4 row bg-light">
             <h3 class="display-7 p-3">Data Alumni</h3>
@@ -173,11 +173,11 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-5 ml-3">
-                                                <label for="te_l_edit">TTL</label>
+                                                <label for="te_l_edit">Tempat Lahir</label>
                                                 <input type="text" class="form-control" id="te_l_edit" placeholder="">
                                             </div>
                                             <div class="form-group col-md-5">
-                                                <label for="ta_l_edit">TTL</label>
+                                                <label for="ta_l_edit">Tanggal Lahir</label>
                                                 <input type="date" class="form-control" id="ta_l_edit" placeholder="">
                                             </div>
                                         </div>
@@ -314,8 +314,8 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="<?php echo base_url('export/pdf'); ?>" target="_blank" class="btn btn-success">PDF</a>
-                                    <a href="<?php echo base_url('export/xlsx') ?>" target="_blank" class="btn btn-success">XLSX</a>
+                                    <a href="<?php echo site_url('#'); ?>" target="_blank" class="btn btn-success">PDF</a>
+                                    <a href="<?php echo site_url('#') ?>" target="_blank" class="btn btn-success">XLSX</a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -344,9 +344,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_thn">Jurusan</label>
                                             <select name="jurusan_thn" id="jurusan_thn" class="form-control">
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Perbankan">Perbankan</option>
-                                                <option value="Fotografi & Desain Grafis">Fotografi & Desain Grafis</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -381,9 +379,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_thn_edit">Jurusan</label>
                                             <select name="jurusan_thn_edit" id="jurusan_thn_edit" class="form-control">
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Perbankan">Perbankan</option>
-                                                <option value="Fotografi & Desain Grafis">Fotografi & Desain Grafis</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -418,9 +414,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_bln">Jurusan</label>
                                             <select name="jurusan_bln" id="jurusan_bln" class="form-control">
-                                                <option value="Multimedia Creator">Multimedia Creator</option>
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Digital Marketing">Digital Marketing</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -455,9 +449,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_bln_edit">Jurusan</label>
                                             <select name="jurusan_bln_edit" id="jurusan_bln_edit" class="form-control">
-                                                <option value="Multimedia Creator">Multimedia Creator</option>
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Digital Marketing">Digital Marketing</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -492,13 +484,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_itf">Jurusan</label>
                                             <select name="jurusan_itf" id="jurusan_itf" class="form-control">
-                                                <option value="Prof. Admin">Prof. Admin</option>
-                                                <option value="Prof. Office">Prof. Office</option>
-                                                <option value="Desain Grafis">Desain Grafis</option>
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Teknisi Komputer & Jaringan">Teknisi Komputer & Jaringan</option>
-                                                <option value="Akuntansi">Akuntansi</option>
-                                                <option value="Komputer Akuntansi">Komputer Akuntansi</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -533,13 +519,7 @@
                                         <div class="col-md-9">
                                             <label for="jurusan_itf_edit">Jurusan</label>
                                             <select name="jurusan_itf_edit" id="jurusan_itf_edit" class="form-control">
-                                                <option value="Prof. Admin">Prof. Admin</option>
-                                                <option value="Prof. Office">Prof. Office</option>
-                                                <option value="Desain Grafis">Desain Grafis</option>
-                                                <option value="Web Programmer">Web Programmer</option>
-                                                <option value="Teknisi Komputer & Jaringan">Teknisi Komputer & Jaringan</option>
-                                                <option value="Akuntansi">Akuntansi</option>
-                                                <option value="Komputer Akuntansi">Komputer Akuntansi</option>
+                                                <!-- data_select_xhr -->
                                             </select>
                                         </div>
                                     </div>
@@ -719,3 +699,5 @@
 <script src="<?php echo base_url('assets/js/alumni/program_select.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/alumni/ade_inshow.js'); ?>"></script>
 <script src="<?php echo base_url('assets/js/alumni/disablefeature.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/alumni/select_xhr.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/alumni/export.js'); ?>"></script>

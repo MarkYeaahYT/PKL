@@ -32,10 +32,16 @@
         </a>
     
         <div class="navbar-nav nav ml-auto">
-            <a href="<?php echo base_url('/'); ?>">
-                <img src="<?php echo base_url('assets/icon/power.png'); ?>" width="30" height="30" alt="" srcset="">
+            <a class="power-btn" href="<?php echo base_url('/'); ?>">
+                <img src="<?php echo base_url('assets/icon/power.png'); ?>" width="25" height="25" alt="" srcset="">
             </a>
         </div>
+        <style>
+            .power-btn:hover{
+                transition: all 1s;
+                rotate: 45deg;
+            }
+        </style>
         
     </div>
     

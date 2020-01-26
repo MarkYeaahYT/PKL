@@ -44,7 +44,7 @@
         <li>
             <hr>
             <div class="container fluid">
-                <a href="<?php echo base_url('alumni/#'); ?>">
+                <a href="<?php echo site_url('program'); ?>">
                     <div class="row">
                         <div class="col-md-1">
                             <img src="<?php echo base_url('assets/icon/book.png'); ?>" width="20" height="20" alt="" srcset="">

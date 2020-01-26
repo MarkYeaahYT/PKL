@@ -1,4 +1,7 @@
 $(document).ready(function () {
+    /**
+     * Disable some input button in clause
+     */
     $('#status').change(function (e) { 
         e.preventDefault();
         
@@ -10,6 +13,15 @@ $(document).ready(function () {
             $('#perusahaan_penerima').attr('readonly', "");
             $('#alamat_perusahaan').attr('readonly', "");
             $('#no_tlp_perusahaan').attr('readonly', "");
+        }
+    });
+
+    /**
+     * move to spesific input when click TAB
+     */
+    $('#status').keyup(function (e) { 
+        if(e.keyCode == 9){
+            $('#ket').focus();
         }
     });
 });

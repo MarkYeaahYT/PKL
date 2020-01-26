@@ -1,6 +1,6 @@
-<div class="pt-3 border">
+<div class=" border">
         <div class="pl-4 row bg-light">
-            <h3 class="display-7 ">Dashboard</h3>
+            <h3 class="p-3 display-7">Dashboard</h3>
         </div>
         <hr>
     <div class="row">
