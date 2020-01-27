@@ -50,6 +50,20 @@ class Alumni extends CI_Controller{
         echo json_encode($data);
     }
 
+    public function realtime()
+    {
+        # code...
+        $data = array(
+            'jswa' => $this->alumni_model->j_siswa(),
+            'jsb' => $this->alumni_model->j_sbekerja(),
+            'jbb' => $this->alumni_model->j_bbekerja(),
+            'jthn' => $this->alumni_model->j_thn(),
+            'jbln' => $this->alumni_model->j_bln(),
+            'jitf' => $this->alumni_model->j_itf(),
+        );
+        echo json_encode($data);
+    }
+    
 }
 
 ?>

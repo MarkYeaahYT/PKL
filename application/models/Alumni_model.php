@@ -119,6 +119,58 @@ class Alumni_model extends CI_Model{
         $query = $this->db->update('alumni');
         return $query;
     }
+
+    public function j_siswa()
+    {
+        # code...
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
+
+    public function j_sbekerja()
+    {
+        # code...
+        $status = "Sudah Bekerja";
+        $this->db->where('status', $status);
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
+    
+    public function j_bbekerja()
+    {
+        # code...
+        $status = "Mencari Pekerjaan";
+        $this->db->where('status', $status);
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
+    
+    public function j_thn()
+    {
+        # code...
+        $program = "1 Tahun";
+        $this->db->where('program', $program);
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
+    
+    public function j_bln()
+    {
+        # code...
+        $program = "Profesi 6 Bulan";
+        $this->db->where('program', $program);
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
+    
+    public function j_itf()
+    {
+        # code...
+        $program = "Intensif";
+        $this->db->where('program', $program);
+        $query = $this->db->get('alumni');
+        return $query->num_rows();
+    }
 }
 
 ?>
