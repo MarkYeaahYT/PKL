@@ -6,25 +6,25 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card-deck">
-                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/back5.jpg'); ?>'); background-size: 100% 100%;color:white ;">
+                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/alumni/1.jpg'); ?>'); background-size: 100% 100%;color:white ;">
                     <div class="card-body text-center">
-                        <img src="<?php echo base_url('#') ?>" alt="Some Image" width="60" height="60">
-                        <p class="card-text">#</p>
+                        <img src="<?php echo base_url('assets/icon/alumni/people.png') ?>" alt="Some Image" width="60" height="60">
+                        <p class="card-text text-light">Jumlah Siswa</p>
+                        <h3 id="jum_siswa" class="card-text"> <!-- XHR --> </h3>
+                    </div>
+                </div>
+                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/alumni/12.jpg'); ?>'); background-size: 100% 100%;color: white; ">
+                    <div class="card-body text-center">
+                        <img src="<?php echo base_url('assets/icon/alumni/uess.png'); ?>" alt="Some Image" width="60" height="60">
+                        <p class="card-text text-light">Sudah Bekerja</p>
                         <h3 id="" class="card-text"> <!-- XHR --> </h3>
                     </div>
                 </div>
-                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/back3.jpg'); ?>'); background-size: 100% 100%;color: white; ">
+                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/alumni/13.jpg'); ?>'); background-size: 100% 100%; color: white;">
+                <a href="<?php echo base_url(''); ?>" style="text-decoration: none">
                     <div class="card-body text-center">
-                        <img src="<?php echo base_url('#'); ?>" alt="Some Image" width="60" height="60">
-                        <p class="card-text">#</p>
-                        <h3 id="" class="card-text"> <!-- XHR --> </h3>
-                    </div>
-                </div>
-                <div class="card" style="background-image: url('<?php echo base_url('assets/icon/back4.jpg'); ?>'); background-size: 100% 100%; color: white;">
-                <a href="<?php echo base_url('#'); ?>" style="text-decoration: none">
-                    <div class="card-body text-center">
-                            <img src="<?php echo base_url('#'); ?>" alt="Some Image" width="60" height="60">
-                            <p class="card-text text-danger">#</p>
+                            <img src="<?php echo base_url('assets/icon/alumni/rungg.png'); ?>" alt="Some Image" width="60" height="60">
+                            <p class="card-text text-danger">Belum Bekerja</p>
                             <h3 id="" class="card-text text-danger"> <!-- XHR --> </h3>
                         </div>
                     </div>

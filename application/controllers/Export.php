@@ -20,5 +20,18 @@ class Export extends CI_Controller{
         $data['data'] = $this->export_model->xlsx();
         $this->load->view('barang/export', $data);
     }
+
+    public function pdf_alumni()
+    {
+        # code...
+        $this->export_model->pdf_alumni();
+    }
+
+    public function xlsx_alumni()
+    {
+        # code...
+        $data['data'] = $this->export_model->xlsx_alumni();
+        $this->load->view('alumni/export', $data);
+    }
 }
 ?>

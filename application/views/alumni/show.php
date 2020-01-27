@@ -314,8 +314,8 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <a href="<?php echo site_url('#'); ?>" target="_blank" class="btn btn-success">PDF</a>
-                                    <a href="<?php echo site_url('#') ?>" target="_blank" class="btn btn-success">XLSX</a>
+                                    <a href="<?php echo site_url('export/pdf_alumni'); ?>" target="_blank" class="btn btn-success">PDF</a>
+                                    <a href="<?php echo site_url('export/xlsx_alumni') ?>" target="_blank" class="btn btn-success">XLSX</a>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -620,7 +620,7 @@
                             <th>Tahun Lulus</th>
                             <th>Status</th>
                             <th>Mulai Tanggal</th>
-                            <th>Posisi Pekerjaan</th>
+                            <th>Jabatan Pekerjaan</th>
                             <th>Gaji Pertama</th>
                             <th>Perusahaan Penerima</th>
                             <th>Alamat Perusahaan</th>
