@@ -127,6 +127,12 @@ class Alumni_model extends CI_Model{
         return $query->num_rows();
     }
 
+    /**
+     * Seriously a have make little bit
+     * mistake ;) why in bellow not use paramater
+     * it's so redudanci
+     */
+
     public function j_sbekerja()
     {
         # code...
@@ -170,6 +176,23 @@ class Alumni_model extends CI_Model{
         $this->db->where('program', $program);
         $query = $this->db->get('alumni');
         return $query->num_rows();
+    }
+
+    public function filter($status = "", $program = "")
+    {
+        # code...
+        // $this->db->where('status');
+        $res;
+        if($status != ""){
+            $this->db->where('status', $status);
+            $res = $this->db->get('alumni')->result();
+        }
+
+        if($program != ""){
+            $this->db->where('program', $program);
+            $res = $this->db->get('alumni')->result();
+        }
+        return $res;
     }
 }
 

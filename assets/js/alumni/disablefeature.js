@@ -13,6 +13,13 @@ $(document).ready(function () {
             $('#perusahaan_penerima').attr('readonly', "");
             $('#alamat_perusahaan').attr('readonly', "");
             $('#no_tlp_perusahaan').attr('readonly', "");
+        }else{
+            $('#tanggal_mulai').removeAttr('readonly');
+            $('#posisi_pekerjan').removeAttr('readonly');
+            $('#gaji').removeAttr('readonly');
+            $('#perusahaan_penerima').removeAttr('readonly');
+            $('#alamat_perusahaan').removeAttr('readonly');
+            $('#no_tlp_perusahaan').removeAttr('readonly');
         }
     });
 
@@ -23,5 +30,16 @@ $(document).ready(function () {
         if(e.keyCode == 9){
             $('#ket').focus();
         }
+    });
+    
+    $('#tanggal_mulai').keyup(function (e) { 
+        var attr = $('#tanggal_mulai').attr('readonly');
+        if(typeof attr !== typeof undefined && attr !== false){
+            if(e.keyCode == 9){
+                $('#ket').focus();
+            }
+
+        }
+        
     });
 });

@@ -64,6 +64,34 @@ class Alumni extends CI_Controller{
         echo json_encode($data);
     }
     
+    public function filter()
+    {
+        # code...
+        $this->load->view('filter');
+    }
+
+    public function filter_xhr()
+    {
+        # code...
+        $param = $this->input->get('param');
+        if($param == "sb"){
+            $data = $this->alumni_model->filter("Sudah Bekerja" ,"");
+            
+        }else if($param == "bb"){
+            $data = $this->alumni_model->filter("Mencari Pekerjaan" ,"");
+            
+        }else if($param == "thn"){
+            $data = $this->alumni_model->filter("" ,"1 Tahun");
+            
+        }else if($param == "bln"){
+            $data = $this->alumni_model->filter("" ,"Profesi 6 Bulan");
+            
+        }else if($param == "itf"){
+            $data = $this->alumni_model->filter("" ,"Intensif");
+
+        }
+        echo json_encode($data);
+    }
 }
 
 ?>
