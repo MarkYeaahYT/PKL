@@ -145,8 +145,10 @@ class Alumni_model extends CI_Model{
     public function j_bbekerja()
     {
         # code...
-        $status = "Mencari Pekerjaan";
-        $this->db->where('status', $status);
+        $status = "Sudah Bekerja";
+        // $status = "Mencari Pekerjaan";
+        // $this->db->where('status', $status);
+        $this->db->where_not_in('status', $status);
         $query = $this->db->get('alumni');
         return $query->num_rows();
     }

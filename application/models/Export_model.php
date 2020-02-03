@@ -93,22 +93,66 @@ class Export_model extends CI_Model{
         $pdf->Cell(190,12,'Data Alumni',0,1,'C');
         // Memberikan space kebawah agar tidak terlalu rapat
         $pdf->Cell(10,2,'',0,1);
-        $pdf->SetFont('Arial','B',5);
+        $pdf->SetFont('Arial','B',9);
         $pdf->Cell(7,6,'No',1,0);
-        $pdf->Cell(20,6,'Nama',1,0);
-        $pdf->Cell(23,6,'TTL',1,0);
-        $pdf->Cell(15,6,'Alamat',1,0);
+        $pdf->Cell(40,6,'Nama',1,0);
+        $pdf->Cell(40,6,'TTL',1,0);
+        $pdf->Cell(45,6,'Alamat',1,0);
         $pdf->Cell(25,6,'No Tlp',1,0);
-        $pdf->Cell(20,6,'Program',1,0);
-        $pdf->Cell(15,6,'Jurusan',1,0);
-        $pdf->Cell(22,6,'Tahun Lulus',1,0);
-        $pdf->Cell(22,6,'Status',1,0);
-        $pdf->Cell(22,6,'Mulai Tanggal',1,0);
-        $pdf->Cell(22,6,'jabatan Pekerjaan',1,0);
-        $pdf->Cell(20,6,'Ket',1,1);
+        $pdf->Cell(30,6,'Program',1,1);
+        
+        $data = $this->db->get('alumni')->result();
+        $no = 0;
+        $pdf->SetFont('Arial','',9);
+        foreach($data as $row){
+            $no++;
+            $pdf->Cell(7,6, $no ,1,0);
+            $pdf->Cell(40,6, $row->nama,1,0);
+            $pdf->Cell(40,6, $row->te_lahir." ".$row->ta_lahir ,1,0);
+            $pdf->Cell(45,6, $row->alamat ,1,0);
+            $pdf->Cell(25,6, $row->no_hp ,1,0);
+            $pdf->Cell(30,6, $row->program ,1,1);
+            
+        }
+        
+        $pdf->AddPage('L', 'A5');
+        
+        $pdf->SetFont('Arial','B',9);
+        $pdf->Cell(30,6,'Jurusan',1,0);
+        $pdf->Cell(21,6,'Tahun Lulus',1,0);
+        $pdf->Cell(30,6,'Status',1,0);
+        $pdf->Cell(23,6,'Mulai Tanggal',1,0);
+        $pdf->Cell(30,6,'Jabatan Pekerjaan',1,0);
+        $pdf->Cell(25,6,'Gaji Pertama',1,0);
+        $pdf->Cell(35,6,'Perusahaan Penerima',1,1);
+        
+        $pdf->SetFont('Arial','',9);
+        foreach($data as $row){
+            $pdf->Cell(30,6, $row->jurusan ,1,0);
+            $pdf->Cell(21,6, $row->tahun_lulus ,1,0);
+            $pdf->Cell(30,6, $row->status ,1,0);
+            $pdf->Cell(23,6, $row->mulai_tanggal ,1,0);
+            $pdf->Cell(30,6, $row->posisi_pekerjaan ,1,0);
+            $pdf->Cell(25,6, $row->gaji_pertama ,1,0);
+            $pdf->Cell(35,6, $row->perusahaan_penerima ,1,1);
+            
+        }
 
-        $pdf->SetFont('Arial','',8);
+        $pdf->AddPage('L', 'A5');
+        
+        $pdf->SetFont('Arial','B',9);
+        $pdf->Cell(45,6,'Alamat Perusahaan',1,0);
+        $pdf->Cell(27,6,'No Tlp',1,0);
+        $pdf->Cell(50,6,'Ket',1,1);
 
+        $pdf->SetFont('Arial','',9);
+
+        foreach($data as $row){
+            $pdf->Cell(45,6, $row->alamat_perusahaan ,1,0);
+            $pdf->Cell(27,6, $row->no_tlp_perusahaan ,1,0);
+            $pdf->Cell(50,6, $row->ket ,1,1);
+        }
+        
         $pdf->Output();
 
     }

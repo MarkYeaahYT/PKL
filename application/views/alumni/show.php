@@ -90,6 +90,11 @@
                                                 <select name="status" id="status" class="form-control">
                                                     <option value="Sudah Bekerja">Sudah Bekerja</option>
                                                     <option value="Mencari Pekerjaan">Mencari Pekerjaan</option>
+                                                    <option value="Lnjt Kuliah">Lnjt Kuliah</option>
+                                                    <option value="DO">DO</option>
+                                                    <option value="Wirausaha">Wirausaha</option>
+                                                    <option value="Magang">Magang</option>
+                                                    <option value="?">?</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -219,6 +224,11 @@
                                                 <select name="status" id="status_edit" class="form-control">
                                                     <option value="Mencari Pekerjaan">Mencari Pekerjaan</option>
                                                     <option value="Sudah Bekerja">Sudah Bekerja</option>
+                                                    <option value="Lnjt Kuliah">Lnjt Kuliah</option>
+                                                    <option value="DO">DO</option>
+                                                    <option value="Wirausaha">Wirausaha</option>
+                                                    <option value="Magang">Magang</option>
+                                                    <option value="?">?</option>
                                                 </select>
                                             </div>
                                         </div>

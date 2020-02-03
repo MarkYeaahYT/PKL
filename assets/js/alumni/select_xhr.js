@@ -34,7 +34,7 @@ $(document).ready(function () {
     /**
      * set data in select EDIT
      */
-    $('#tambah').on('click', function () {
+    $('#mytable').on('click', '.item-edit',function () {
         var thn = $('#jurusan_thn_edit > option').length
         var bln = $('#jurusan_bln_edit > option').length
         var itf = $('#jurusan_itf_edit > option').length
