@@ -651,6 +651,10 @@
 
 <script>
     var table = $('#mytable').DataTable({
+        // dom: 'Bfrtip',
+        // buttons: [
+        //     'copy', 'csv', 'excel', 'pdf', 'print'
+        // ]
         ajax: {
             url: '/alfabank/alumni/data_xhr',
             dataSrc: ''
