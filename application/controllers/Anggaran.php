@@ -1,6 +1,7 @@
 <?php 
 class Anggaran extends CI_Controller{
 
+
     public function __construct()
     {
         # code...
@@ -22,10 +23,12 @@ class Anggaran extends CI_Controller{
         if($this->session->has_userdata('user')){
             $role = $_SESSION['role'];
             if($role == "1"){
-                $this->load->view('anggaran/admin/home');
+                $this->load->view('anggaran/adminhome');
             }else if($role == "2"){
                 $this->load->view('anggaran/user/home');
             }
+        }else{
+            $this->load->view('errors/forbidden');
         }
     }
 
@@ -52,6 +55,19 @@ class Anggaran extends CI_Controller{
             echo json_encode($data);
         }
 
+    }
+
+    public function shutdown()
+    {
+        # code...
+        unset(
+            $_SESSION['user'],
+            $_SESSION['role']
+        );
+        $data = array(
+            'status' => 'YES'
+        );
+        echo json_encode($data);
     }
 }
 ?>
