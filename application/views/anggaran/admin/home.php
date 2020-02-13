@@ -24,19 +24,19 @@
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
-                    <td><input type="number" class="form-control"></td>
-                    <td><input type="number" class="form-control" placeholder="ex: 1000000"></td>
+                    <td><input id="kastangan" type="number" class="form-control"></td>
+                    <td><input id="atm" type="number" class="form-control" placeholder="ex: 1000000"></td>
                   </tr>
                   
                 </tbody>
             </table>
             <div class="row d-block p-4">
                 <div class="float-left">
-                    <p class="text-info">Total</p>
+                    <p class="text-dark">Total</p>
                 </div>
                 <div class="float-right">
-					<button class="btn btn-success">Save</button>
-                    <p class="text-info">Rp </p>
+					<button class="btn btn-success save_saldo">Save</button>
+                    <p class="text-dark total_saldo">Rp </p>
                 </div>
             </div>
 
@@ -55,14 +55,14 @@
 				<tbody>
 					<tr>
 						<th scope="row">1</th>
-						<td> <input type="text" class="form-control"> </td>
+						<td> <input type="text" class="form-control item"> </td>
 						<td> 
-							<select name="" id="" class="from-control">
+							<select name="metode" class="from-control metode">
 								<option value="Tunai">Tunai</option>
 								<option value="Transfer">Transfer</option>
 							</select> 
 						</td>
-						<td> <input type="number" class="form-control"> </td>
+						<td> <input type="number" class="form-control Rp"> </td>
 						<td> 
 							<a href="javascript:void(0)" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
 							<a href="javascript:void(0)" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
@@ -71,14 +71,26 @@
 				</tbody>
             </table>
 			<div class="row d-block p-4">
+                <div class="float-left">
+					<br>
+					<br>
+					<p class="text-dark">Total</p>
+					<p class="text-info">Sisa</p>
+                    
+                </div>
                 <div class="float-right">
                     <button class="save-item btn btn-success"> Save </button>
                     <button class="add-item btn btn-success"> <i class="fas fa-plus"></i> </button>
+                    <p class="text-dark total_harga_item">Rp </p>
+                    <p class="text-info sisa">Rp </p>
+
                 </div>
             </div>
-
-            
         </div>
+		<br>
+		<br>
+		<br>
+		<br>
 		<hr>
     </div>
 	<style>
@@ -95,7 +107,8 @@
 	</style>
 	<script>
 		$(document).ready(function () {
-			$('.datenow').text(Date());
+			var datenow = new Date().toISOString().slice(0,10);
+			$('.datenow').text(datenow);
 
 		});
 	</script>

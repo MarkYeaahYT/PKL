@@ -57,6 +57,26 @@ class Anggaran extends CI_Controller{
 
     }
 
+    public function data()
+    {
+        /**
+         * Load Dashboard consider by role in session
+         * 1 admin
+         * 2 user
+         */
+        # code...
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            if($role == "1"){
+                $this->load->view('anggaran/admindata');
+            }else if($role == "2"){
+                $this->load->view('anggaran/user/home');
+            }
+        }else{
+            $this->load->view('errors/forbidden');
+        }
+    }
+
     public function shutdown()
     {
         # code...
@@ -67,6 +87,20 @@ class Anggaran extends CI_Controller{
         $data = array(
             'status' => 'YES'
         );
+        echo json_encode($data);
+    }
+
+    public function save_dana()
+    {
+        # code...
+        $data = $this->anggaran_model->save_dana();
+        echo json_encode($data);
+    }
+    
+    public function show_dana()
+    {
+        # code...
+        $data = $this->anggaran_model->show_dana();
         echo json_encode($data);
     }
 }

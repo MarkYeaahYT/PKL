@@ -17,13 +17,13 @@
         <li>
             <hr>
             <div class="container fluid">
-                <a href="<?php echo base_url('alumni/'); ?>">
+                <a href="<?php echo site_url('anggaran/'); ?>">
                     <div class="row">
                         <div class="col-md-1">
                             <img src="<?php echo base_url('assets/icon/dashboard.png'); ?>" width="25" height="25" alt="" srcset="">
                         </div>
                         <div class="col-md-1">
-                            #
+                            Home
                         </div>
                     </div>
                 </a>
@@ -32,13 +32,13 @@
         <li>
             <hr>
             <div class="container fluid">
-                <a href="<?php echo base_url('alumni/data/'); ?>">
+                <a href="<?php echo base_url('anggaran/data/'); ?>">
                     <div class="row">
                         <div class="col-md-1">
                             <img src="<?php echo base_url('assets/icon/data.png'); ?>" width="20" height="20" alt="" srcset="">
                         </div>
                         <div class="col-md-1">
-                            #
+                            Data
                         </div>
                     </div>
                 </a>
