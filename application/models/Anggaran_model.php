@@ -62,12 +62,12 @@ class Anggaran_model extends CI_Model{
                 'atm' => "0",
                 'kas_tangan' => "0"
             );
-        }else if($now->num_rows() > 1 && $before->num_rows() < 1){
+        }else if($now->num_rows() > 0 && $before->num_rows() < 1){
             $result = array(
                 'atm' => $resn[0]->atm,
                 'kas_tangan' => "0"
             );
-        }else if($now->num_rows() < 1 && $before->num_rows() > 1){
+        }else if($now->num_rows() < 1 && $before->num_rows() > 0){
             $result = array(
                 'atm' => "0",
                 'kas_tangan' => $resb[0]->sisa
@@ -81,6 +81,70 @@ class Anggaran_model extends CI_Model{
         }
 
         return $result;
+    }
+
+    public function save_item()
+    {
+        # code...
+        $datenow = $this->input->post('datenow');
+        $item = $this->input->post('item');
+        $metode = $this->input->post('metode');
+        $harga = $this->input->post('harga');
+
+        $action = $this->input->post('action');
+        $id_update = $this->input->post('id_update');
+
+        $this->db->where('date', $datenow);
+        $query = $this->db->get('anggaran');
+        $rows = $query->num_rows();
+        $res = $query->result();
+        if($rows > 0){
+            if($action == "update"){
+                $this->db->set('item', $item);
+                $this->db->set('metode', $metode);
+                $this->db->set('harga', $harga);
+                $this->db->where('id', $id_update);
+                $query = $this->db->update('anggaran_data');
+                return $query;
+
+            }else if($action == "save"){
+                $id = $res[0]->id;
+                $this->db->set('aid', $id);
+                $this->db->set('item', $item);
+                $this->db->set('metode', $metode);
+                $this->db->set('harga', $harga);
+                $query = $this->db->insert('anggaran_data');
+                return $query;
+
+            }
+        }
+    }
+
+    public function show_item()
+    {
+        # code...
+        $datenow = $this->input->post('datenow');
+
+        $this->db->where('date', $datenow);
+        $query = $this->db->get('anggaran');
+        $rows = $query->num_rows();
+        if($rows > 0){
+            $res = $query->result();
+            $aid = $res[0]->id;
+            $this->db->where('aid', $aid);
+            $query = $this->db->get('anggaran_data');
+            return $query->result();
+        }else{
+            $data = array(
+                "aid" => "",
+                "harga" => "",
+                "id" => "",
+                "item" => "",
+                "metode" => "",
+                "status" => null
+            );
+            return $data;
+        }
     }
 
 
