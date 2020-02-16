@@ -147,6 +147,52 @@ class Anggaran_model extends CI_Model{
         }
     }
 
+    public function save_sisa()
+    {
+        # code...
+        $sisa = $this->input->post('sisa');
+        $datenow = $this->input->post('datenow');
+
+        $this->db->where('date', $datenow);
+        $query = $this->db->get('anggaran');
+        if($query->num_rows() > 0){
+            $this->db->where('date', $datenow);
+            $this->db->set('sisa', $sisa);
+            $query = $this->db->update('anggaran');
+            return $query;
+        }else{
+            $data = array(
+                'message' => 'rows empty'
+            );
+            return $data;
+        }
+    }
+
+    public function set_status()
+    {
+        # code...
+        $id = $this->input->post("id");
+        $status = $this->input->post("status");
+
+        if($status == 1){
+            $this->db->where('id', $id);
+            $this->db->set("status", "Accept");
+            $query = $this->db->update("anggaran_data");
+            return $query;
+        }else if($status == 0){
+            $this->db->where('id', $id);
+            $this->db->set("status", "Reject");
+            $query = $this->db->update("anggaran_data");
+            return $query;
+        }else{
+            $data = array(
+                "message" => "failed"
+            );
+            return $data;
+        }
+        
+    }
+
 
 }
 ?>

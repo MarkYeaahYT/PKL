@@ -25,7 +25,7 @@ class Anggaran extends CI_Controller{
             if($role == "1"){
                 $this->load->view('anggaran/adminhome');
             }else if($role == "2"){
-                $this->load->view('anggaran/user/home');
+                $this->load->view('anggaran/userhome');
             }
         }else{
             $this->load->view('errors/forbidden');
@@ -70,7 +70,7 @@ class Anggaran extends CI_Controller{
             if($role == "1"){
                 $this->load->view('anggaran/admindata');
             }else if($role == "2"){
-                $this->load->view('anggaran/user/home');
+                $this->load->view('anggaran/userdata');
             }
         }else{
             $this->load->view('errors/forbidden');
@@ -116,6 +116,21 @@ class Anggaran extends CI_Controller{
         # code...
         $data = $this->anggaran_model->show_item();
         echo json_encode($data);
+    }
+
+    public function save_sisa()
+    {
+        # code...
+        $data = $this->anggaran_model->save_sisa();
+        echo json_encode($data);
+    }
+
+    public function set_status()
+    {
+        # code...
+        $data = $this->anggaran_model->set_status();
+        echo json_encode($data);
+
     }
 }
 ?>

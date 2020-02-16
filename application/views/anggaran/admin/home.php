@@ -64,8 +64,8 @@
 						</td>
 						<td> <input type="number" class="form-control Rp"> </td>
 						<td> 
-							<a title="Accept" href="javascript:void(0)" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
-							<a title="Reject" href="javascript:void(0)" class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i></a>
+							<a title="Accept" href="javascript:void(0)" class="btn btn-success accept"><i class="fa fa-check" aria-hidden="true"></i></a>
+							<a title="Reject" href="javascript:void(0)" class="btn btn-danger reject"><i class="fa fa-times" aria-hidden="true"></i></a>
 						</td>
 					</tr>
 				</tbody>

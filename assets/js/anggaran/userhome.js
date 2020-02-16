@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
-    document.title += " | Admin";
+    document.title += " | User";
+
     
     var totalsaldo = 0
     var kastangan
@@ -11,19 +12,13 @@ $(document).ready(function () {
     var sisa = 0
 
     function renderrow(row, id, item, harga, metode, status) {
-        var cssA = ""
-        var cssR = ""
+        var html = ""
         if(status == "Accept"){
-            cssA = "style='opacity: 1;'"
-            cssR = "style='opacity: 0.1;'"
+            html = "<a title='Accepted by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-check' aria-hidden='true'></i></a>"
         }else if(status == "Reject"){
-            cssA = "style='opacity: 0.1;'"
-            cssR = "style='opacity: 1;'"
-            
+            html = "<a title='Rejected by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-times' aria-hidden='true'></i></a>"
         }else{
-            cssA = "style='opacity: 1;'"
-            cssR = "style='opacity: 1;'"
-
+            html = "<a title='Unresponse' href='javascript:void(0)' class='btn btn-info status'> ? </a>"
         }
 
         if(metode == "Transfer"){
@@ -38,8 +33,7 @@ $(document).ready(function () {
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
                             "<td> "+
-                                "<a title='Accept' href='javascript:void(0)' class='btn btn-success accept' data-id='"+id+"' "+cssA+" ><i class='fa fa-check' aria-hidden='true'></i></a>"+
-                                "<a title='Reject' href='javascript:void(0)' class='btn btn-danger reject' data-id='"+id+"' "+cssR+" ><i class='fa fa-times' aria-hidden='true'></i></a>"+
+                                html+
                             " </td>"+
                            "</tr>";
 
@@ -55,8 +49,7 @@ $(document).ready(function () {
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
                             "<td> "+
-                                "<a title='Accept' href='javascript:void(0)' class='btn btn-success accept' data-id='"+id+"' "+cssA+" ><i class='fa fa-check' aria-hidden='true'></i></a>"+
-                                "<a title='Reject' href='javascript:void(0)' class='btn btn-danger reject' data-id='"+id+"' "+cssR+" ><i class='fa fa-times' aria-hidden='true'></i></a>"+
+                                html+
                             " </td>"+
                            "</tr>";
 
@@ -82,8 +75,7 @@ $(document).ready(function () {
                         "</td>"+
                         "<td> <input type='number' class='form-control Rp'> </td>"+
                         "<td> "+
-                            "<a title='Accept' href='javascript:void(0)' class='btn btn-success accept'><i class='fa fa-check' aria-hidden='true'></i></a>"+
-                            "<a title='Reject' href='javascript:void(0)' class='btn btn-danger reject'><i class='fa fa-times' aria-hidden='true'></i></a>"+
+                            "<a title='Unresponse' href='javascript:void(0)' class='btn btn-info status'> ? </a>"+
                         " </td>"+
                     "</tr>";
         $('#mytable').find('tbody').append(html);
@@ -189,16 +181,12 @@ $(document).ready(function () {
                                             $('#mytable tr').each(function (index, element) {
                                                 // Clean all data then fresh again
                                                 $(this).find(".item").removeAttr("data-id")
-                                                $(this).find(".accept").removeAttr("data-id")
-                                                $(this).find(".reject").removeAttr("data-id")
                                             });
 
                                             $("#mytable tr").each(function (index, element) {
                                                 // element == this
                                                 if(index > 0){
                                                     $(this).find(".item").attr("data-id", response[i].id);
-                                                    $(this).find(".accept").attr("data-id", response[i].id);
-                                                    $(this).find(".reject").attr("data-id", response[i].id);
                                                     i += 1;
                                                 }
                                             });
@@ -208,8 +196,6 @@ $(document).ready(function () {
                                             // element == this
                                             // $(this).find(".item").attr("data-status", "saved")
                                             $(this).find(".item").attr("data-id", id)
-                                            $(this).find(".accept").attr("data-id", id)
-                                            $(this).find(".reject").attr("data-id", id)
 
                                         });
                                     }
@@ -294,6 +280,7 @@ $(document).ready(function () {
                     var metode;
                     var render;
                     var status;
+                    var html;
                     var first = true;
                     response.forEach(element => {
                         if(first){
@@ -315,20 +302,25 @@ $(document).ready(function () {
                                 $(this).find(".metode").val(metode)
 
                                 $(this).find(".item").attr("data-id", id)
-                                $(this).find(".accept").attr("data-id", id)
-                                $(this).find(".reject").attr("data-id", id)
 
                                 // Set status Feddback
                                 if(status == "Accept"){
-                                    $(this).find(".accept").css("opacity", "1");
-                                    $(this).find(".reject").css("opacity", "0.2");
+                                    html = "<i class='fa fa-check' aria-hidden='true'></i>";
+                                    $(this).find(".status").html(html);
+                                    $(this).find(".status").attr("title", "Accepted by Admin");
+                                    // User Act
                                 }else if(status == "Reject"){
-                                    $(this).find(".accept").css("opacity", "0.2");
-                                    $(this).find(".reject").css("opacity", "1");
+                                    // User Act
+                                    html = "<i class='fa fa-times' aria-hidden='true'></i>";
+                                    $(this).find(".status").html(html);
+                                    $(this).find(".status").attr("title", "Rejected by Admin");
                                     
                                 }else{
-                                    $(this).find(".accept").css("opacity", "1");
-                                    $(this).find(".reject").css("opacity", "1");
+                                    // User Act
+                                    html = "?";
+                                    $(this).find(".status").html(html);
+                                    $(this).find(".status").attr("title", "Unresponse");
+
                                 }
                                 
                             });
@@ -372,8 +364,6 @@ $(document).ready(function () {
                         $(this).find(".metode").val(metode)
 
                         $(this).find(".item").attr("data-id", id)
-                        $(this).find(".accept").attr("data-id", id)
-                        $(this).find(".reject").attr("data-id", id)
                         
                     });
                 }
@@ -387,50 +377,5 @@ $(document).ready(function () {
      });
 
     //   End Show Item
-
-    /**
-     * Handle Action
-     * Set status to Accept or Reject
-     */
-    // Acc
-    $("#mytable").on('click', ".accept",function () {
-        var id = $(this).data('id');
-        $(this).css("opacity", "1");
-        $(this).parent().find(".reject").css("opacity", "0.1");
-        console.log("Accept "+id);
-        $.ajax({
-            type: "POST",
-            url: "/alfabank/anggaran/set_status",
-            data: {
-                id: id,
-                status: 1
-            },
-            dataType: "JSON",
-            success: function (response) {
-                console.log(response);
-            }
-        });
-        
-    });
-    
-    // Reject
-    $("#mytable").on('click', ".reject",function () {
-        var id = $(this).data('id');
-        $(this).css("opacity", "1");
-        $(this).parent().find(".accept").css("opacity", "0.1");
-        console.log("Re "+id);
-        $.ajax({
-            type: "POST",
-            url: "/alfabank/anggaran/set_status",
-            data: {
-                id: id,
-                status: 0
-            },
-            dataType: "JSON",
-            success: function (response) {
-                console.log(response);
-            }
-        });
-    });
 
 });
