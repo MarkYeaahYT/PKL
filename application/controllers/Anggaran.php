@@ -132,5 +132,12 @@ class Anggaran extends CI_Controller{
         echo json_encode($data);
 
     }
+
+    public function show_data()
+    {
+        # code...
+        $data = $this->anggaran_model->show_data();
+        echo json_encode($data);
+    }
 }
 ?>

@@ -8,6 +8,7 @@ $(document).ready(function () {
     var datenow = new Date().toISOString().slice(0,10);
     
     var total_harga_item = 0
+    var total_harga_reject = 0
     var sisa = 0
 
     function renderrow(row, id, item, harga, metode, status) {
@@ -19,6 +20,7 @@ $(document).ready(function () {
         }else if(status == "Reject"){
             cssA = "style='opacity: 0.1;'"
             cssR = "style='opacity: 1;'"
+            total_harga_reject += parseInt(harga);
             
         }else{
             cssA = "style='opacity: 1;'"
@@ -228,13 +230,16 @@ $(document).ready(function () {
 
         /**
          * Save Sisa to database
+         * I'm forget
+         * I add save pengeluaran
          */
         $.ajax({
             type: "POST",
             url: "/alfabank/anggaran/save_sisa",
             data: {
                 datenow: datenow,
-                sisa: sisa
+                sisa: sisa,
+                pengeluaran: total_harga_item
             },
             dataType: "JSON",
             success: function (response) {
@@ -325,6 +330,7 @@ $(document).ready(function () {
                                 }else if(status == "Reject"){
                                     $(this).find(".accept").css("opacity", "0.2");
                                     $(this).find(".reject").css("opacity", "1");
+                                    total_harga_reject += parseInt(harga)
                                     
                                 }else{
                                     $(this).find(".accept").css("opacity", "1");
@@ -366,19 +372,35 @@ $(document).ready(function () {
                     // console.log(item);
                     // console.log(harga);
                     // console.log(metode);
-                    $('#mytable tr').each(function (index, element) {
-                        $(this).find(".item").val(item)
-                        $(this).find(".Rp").val(harga)
-                        $(this).find(".metode").val(metode)
 
-                        $(this).find(".item").attr("data-id", id)
-                        $(this).find(".accept").attr("data-id", id)
-                        $(this).find(".reject").attr("data-id", id)
-                        
-                    });
+                    if(id != ""){
+                        $('#mytable tr').each(function (index, element) {
+                            $(this).find(".item").val(item)
+                            $(this).find(".Rp").val(harga)
+                            $(this).find(".metode").val(metode)
+    
+                            $(this).find(".item").attr("data-id", id)
+                            $(this).find(".accept").attr("data-id", id)
+                            $(this).find(".reject").attr("data-id", id)
+                            
+                        });
+                    }else{
+                        $('#mytable tr').each(function (index, element) {
+                            $(this).find(".item").val(item)
+                            $(this).find(".Rp").val(harga)
+                            $(this).find(".metode").val(metode)
+    
+                            // $(this).find(".item").attr("data-id", id)
+                            $(this).find(".accept").attr("data-id", id)
+                            $(this).find(".reject").attr("data-id", id)
+                            
+                        });
+
+                    }
                 }
 
                 // 
+                total_harga_item -= total_harga_reject;
                 sisa = totalsaldo - total_harga_item;
                 $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
                 $('.sisa').text("Rp "+sisa.toLocaleString());
@@ -397,7 +419,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         $(this).css("opacity", "1");
         $(this).parent().find(".reject").css("opacity", "0.1");
-        console.log("Accept "+id);
+        // console.log("Accept "+id);
         $.ajax({
             type: "POST",
             url: "/alfabank/anggaran/set_status",
@@ -418,7 +440,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         $(this).css("opacity", "1");
         $(this).parent().find(".accept").css("opacity", "0.1");
-        console.log("Re "+id);
+        // console.log("Re "+id);
         $.ajax({
             type: "POST",
             url: "/alfabank/anggaran/set_status",

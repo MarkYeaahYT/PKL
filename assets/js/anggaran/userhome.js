@@ -220,7 +220,8 @@ $(document).ready(function () {
             url: "/alfabank/anggaran/save_sisa",
             data: {
                 datenow: datenow,
-                sisa: sisa
+                sisa: sisa,
+                pengeluaran: total_harga_item
             },
             dataType: "JSON",
             success: function (response) {
@@ -320,6 +321,7 @@ $(document).ready(function () {
                                     html = "?";
                                     $(this).find(".status").html(html);
                                     $(this).find(".status").attr("title", "Unresponse");
+                                    $(this).find(".status").addClass("btn-info");
 
                                 }
                                 
@@ -358,18 +360,36 @@ $(document).ready(function () {
                     // console.log(item);
                     // console.log(harga);
                     // console.log(metode);
-                    $('#mytable tr').each(function (index, element) {
-                        $(this).find(".item").val(item)
-                        $(this).find(".Rp").val(harga)
-                        $(this).find(".metode").val(metode)
 
-                        $(this).find(".item").attr("data-id", id)
-                        
-                    });
+                    if(id != ""){
+                        $('#mytable tr').each(function (index, element) {
+                            $(this).find(".item").val(item)
+                            $(this).find(".Rp").val(harga)
+                            $(this).find(".metode").val(metode)
+    
+                            $(this).find(".item").attr("data-id", id)
+                            $(this).find(".status").html("?");
+                            $(this).find(".status").attr("title", "Unresponse");
+                            $(this).find(".status").addClass("btn-info");
+                        });
+                    }else{
+                        $('#mytable tr').each(function (index, element) {
+                            $(this).find(".item").val(item)
+                            $(this).find(".Rp").val(harga)
+                            $(this).find(".metode").val(metode)
+    
+                            // $(this).find(".item").attr("data-id", id)
+                            $(this).find(".status").html("?");
+                            $(this).find(".status").attr("title", "Unresponse");
+                            $(this).find(".status").addClass("btn-info");
+                        });
+
+                    }
                 }
 
                 // 
                 sisa = totalsaldo - total_harga_item;
+                console.log(sisa)
                 $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
                 $('.sisa').text("Rp "+sisa.toLocaleString());
                 

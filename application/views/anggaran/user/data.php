@@ -13,6 +13,9 @@
                 <tr class="bg-light">
                     <td>No</td>
                     <td>Date</td>
+                    <td>Atm</td>
+                    <td>Pengeluaran</td>
+                    <td>Sisa</td>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +24,33 @@
         </table>
     </div>
     <script>
-         var table = $('#mytable').DataTable();
+    $(document).ready(function () {
+        document.title += " | User";
+        
+        var table = $("#mytable").DataTable({
+            ajax: {
+                url: "/alfabank/anggaran/show_data",
+                dataSrc: ''
+            },
+            columns: [
+                {data: 'id'},
+                {data: 'date'},
+                {render: function (data, type, row) {
+                    var Rp = parseInt(row.atm) ;
+                    return 'Rp '+Rp.toLocaleString();
+                 }},
+                {render: function (data, type, row) {
+                    var Rp = parseInt(row.pengeluaran) ;
+                    return 'Rp '+Rp.toLocaleString();
+                 }},
+                {render: function (data, type, row) {
+                    var Rp = parseInt(row.sisa) ;
+                    return 'Rp '+Rp.toLocaleString();
+                 }}
+            ]
+        })
+
+        // 
+    });
     </script>
 </div>

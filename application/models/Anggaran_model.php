@@ -133,15 +133,31 @@ class Anggaran_model extends CI_Model{
             $aid = $res[0]->id;
             $this->db->where('aid', $aid);
             $query = $this->db->get('anggaran_data');
-            return $query->result();
+            if($query->num_rows() > 0){
+                return $query->result();
+            }else{
+                $data = array(
+                    "0" => array(
+                        "aid" => "",
+                        "harga" => "0",
+                        "id" => "",
+                        "item" => "",
+                        "metode" => "",
+                        "status" => null
+                    )
+                );
+                return $data;
+            }
         }else{
             $data = array(
-                "aid" => "",
-                "harga" => "",
-                "id" => "",
-                "item" => "",
-                "metode" => "",
-                "status" => null
+                "0" => array(
+                    "aid" => "",
+                    "harga" => "0",
+                    "id" => "",
+                    "item" => "",
+                    "metode" => "",
+                    "status" => null
+                )
             );
             return $data;
         }
@@ -149,8 +165,13 @@ class Anggaran_model extends CI_Model{
 
     public function save_sisa()
     {
+        /**
+         * I'm forget
+         * I add save pengeluaran / total harga item
+         */
         # code...
         $sisa = $this->input->post('sisa');
+        $pengeluaran = $this->input->post('pengeluaran');
         $datenow = $this->input->post('datenow');
 
         $this->db->where('date', $datenow);
@@ -158,6 +179,7 @@ class Anggaran_model extends CI_Model{
         if($query->num_rows() > 0){
             $this->db->where('date', $datenow);
             $this->db->set('sisa', $sisa);
+            $this->db->set('pengeluaran', $pengeluaran);
             $query = $this->db->update('anggaran');
             return $query;
         }else{
@@ -193,6 +215,11 @@ class Anggaran_model extends CI_Model{
         
     }
 
-
+    public function show_data()
+    {
+        # code...
+        $query = $this->db->get('anggaran');
+        return $query->result();
+    }
 }
 ?>
