@@ -2,30 +2,33 @@ $(document).ready(function () {
 
     document.title += " | Admin";
     
-    var totalsaldo = 0
-    var kastangan
-    var atm
+    var totalsaldo = 0;
+    var kastangan;
+    var atm;
     var datenow = new Date().toISOString().slice(0,10);
     
-    var total_harga_item = 0
-    var total_harga_reject = 0
-    var sisa = 0
+    var total_harga_item = 0;
+    var total_harga_reject = 0;
+    var sisa = 0;
 
     function renderrow(row, id, item, harga, metode, status) {
         var cssA = ""
         var cssR = ""
+        var htmlstatus = ""
         if(status == "Accept"){
             cssA = "style='opacity: 1;'"
             cssR = "style='opacity: 0.1;'"
+            htmlstatus = ""
         }else if(status == "Reject"){
             cssA = "style='opacity: 0.1;'"
             cssR = "style='opacity: 1;'"
             total_harga_reject += parseInt(harga);
+            htmlstatus = "data-status='0'"
             
         }else{
             cssA = "style='opacity: 1;'"
             cssR = "style='opacity: 1;'"
-
+            htmlstatus = ""
         }
 
         if(metode == "Transfer"){
@@ -39,7 +42,7 @@ $(document).ready(function () {
                                 "</select> "+
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
-                            "<td> "+
+                            "<td "+htmlstatus+" > "+
                                 "<a title='Accept' href='javascript:void(0)' class='btn btn-success accept' data-id='"+id+"' "+cssA+" ><i class='fa fa-check' aria-hidden='true'></i></a>"+
                                 "<a title='Reject' href='javascript:void(0)' class='btn btn-danger reject' data-id='"+id+"' "+cssR+" ><i class='fa fa-times' aria-hidden='true'></i></a>"+
                             " </td>"+
@@ -56,7 +59,7 @@ $(document).ready(function () {
                                 "</select> "+
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
-                            "<td> "+
+                            "<td "+htmlstatus+" > "+
                                 "<a title='Accept' href='javascript:void(0)' class='btn btn-success accept' data-id='"+id+"' "+cssA+" ><i class='fa fa-check' aria-hidden='true'></i></a>"+
                                 "<a title='Reject' href='javascript:void(0)' class='btn btn-danger reject' data-id='"+id+"' "+cssR+" ><i class='fa fa-times' aria-hidden='true'></i></a>"+
                             " </td>"+
@@ -120,8 +123,9 @@ $(document).ready(function () {
      */
     $('.save-item').on('click', function () {
         var isfirst = true;
-        total_harga_item = 0
-        sisa = 0
+        total_harga_reject = 0;
+        total_harga_item = 0;
+        sisa = 0;
         $('#mytable tr').each(function (index, element) {
             // element == this
             if (isfirst){
@@ -132,9 +136,14 @@ $(document).ready(function () {
                 var metode = $(this).find(".metode").val();
                 var Rp = $(this).find(".Rp").val();
                 var id_update = $(this).find(".item").data("id");
+                var reject = $(this).find(".accept").parent().hasClass("rejected");
                 var action;
                 total_harga_item += parseInt(Rp);
+
                 
+                if(reject){
+                    total_harga_reject += parseInt(Rp);
+                }
                 // console.log(item)
                 // console.log(metode)
                 // console.log(Rp)
@@ -224,6 +233,9 @@ $(document).ready(function () {
             }
         });
         // 
+        total_harga_item -= total_harga_reject;
+        // console.log("Reject "+total_harga_reject);
+        // console.log("Item "+total_harga_item);
         sisa = parseInt(totalsaldo) - parseInt(total_harga_item);
         $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
         $('.sisa').text("Rp "+sisa.toLocaleString());
@@ -330,8 +342,10 @@ $(document).ready(function () {
                                 }else if(status == "Reject"){
                                     $(this).find(".accept").css("opacity", "0.2");
                                     $(this).find(".reject").css("opacity", "1");
-                                    total_harga_reject += parseInt(harga)
-                                    
+                                    if(index == 1){
+                                        total_harga_reject += parseInt(harga)
+                                    }
+                                    $(this).find(".accept").parent().attr("data-status", "0")
                                 }else{
                                     $(this).find(".accept").css("opacity", "1");
                                     $(this).find(".reject").css("opacity", "1");
@@ -401,6 +415,8 @@ $(document).ready(function () {
 
                 // 
                 total_harga_item -= total_harga_reject;
+                // console.log("Item "+total_harga_item)
+                // console.log("Reject "+total_harga_reject)
                 sisa = totalsaldo - total_harga_item;
                 $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
                 $('.sisa').text("Rp "+sisa.toLocaleString());
@@ -419,6 +435,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         $(this).css("opacity", "1");
         $(this).parent().find(".reject").css("opacity", "0.1");
+        $(this).parent().removeClass("rejected");
         // console.log("Accept "+id);
         $.ajax({
             type: "POST",
@@ -440,6 +457,7 @@ $(document).ready(function () {
         var id = $(this).data('id');
         $(this).css("opacity", "1");
         $(this).parent().find(".accept").css("opacity", "0.1");
+        $(this).parent().addClass("rejected");
         // console.log("Re "+id);
         $.ajax({
             type: "POST",

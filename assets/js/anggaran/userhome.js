@@ -9,16 +9,23 @@ $(document).ready(function () {
     var datenow = new Date().toISOString().slice(0,10);
     
     var total_harga_item = 0
+    var total_harga_reject = 0
     var sisa = 0
 
     function renderrow(row, id, item, harga, metode, status) {
-        var html = ""
+        var html = "";
+        var htmlstatus = "";
         if(status == "Accept"){
             html = "<a title='Accepted by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-check' aria-hidden='true'></i></a>"
+            htmlstatus = "";
         }else if(status == "Reject"){
+            total_harga_reject += parseInt(harga);
             html = "<a title='Rejected by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-times' aria-hidden='true'></i></a>"
+            htmlstatus = "class='rejected'";
         }else{
             html = "<a title='Unresponse' href='javascript:void(0)' class='btn btn-info status'> ? </a>"
+            htmlstatus = "";
+
         }
 
         if(metode == "Transfer"){
@@ -32,7 +39,7 @@ $(document).ready(function () {
                                 "</select> "+
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
-                            "<td> "+
+                            "<td "+htmlstatus+" > "+
                                 html+
                             " </td>"+
                            "</tr>";
@@ -48,7 +55,7 @@ $(document).ready(function () {
                                 "</select> "+
                             "</td>"+
                             "<td> <input type='number' class='form-control Rp' value='"+harga+"'> </td>"+
-                            "<td> "+
+                            "<td "+htmlstatus+" > "+
                                 html+
                             " </td>"+
                            "</tr>";
@@ -110,6 +117,7 @@ $(document).ready(function () {
      */
     $('.save-item').on('click', function () {
         var isfirst = true;
+        total_harga_reject = 0
         total_harga_item = 0
         sisa = 0
         $('#mytable tr').each(function (index, element) {
@@ -122,8 +130,13 @@ $(document).ready(function () {
                 var metode = $(this).find(".metode").val();
                 var Rp = $(this).find(".Rp").val();
                 var id_update = $(this).find(".item").data("id");
+                var reject = $(this).find(".status").parent().hasClass("rejected");
                 var action;
                 total_harga_item += parseInt(Rp);
+                
+                if(reject){
+                    total_harga_reject += parseInt(Rp);
+                }
                 
                 // console.log(item)
                 // console.log(metode)
@@ -207,7 +220,8 @@ $(document).ready(function () {
                 }
             }
         });
-        // 
+        //
+        total_harga_item -= total_harga_reject;
         sisa = parseInt(totalsaldo) - parseInt(total_harga_item);
         $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
         $('.sisa').text("Rp "+sisa.toLocaleString());
@@ -315,6 +329,10 @@ $(document).ready(function () {
                                     html = "<i class='fa fa-times' aria-hidden='true'></i>";
                                     $(this).find(".status").html(html);
                                     $(this).find(".status").attr("title", "Rejected by Admin");
+                                    $(this).find(".status").parent().addClass("rejected");
+                                    if(index == 1){
+                                        total_harga_reject += parseInt(harga);
+                                    }
                                     
                                 }else{
                                     // User Act
@@ -388,8 +406,9 @@ $(document).ready(function () {
                 }
 
                 // 
+                total_harga_item -= total_harga_reject;
                 sisa = totalsaldo - total_harga_item;
-                console.log(sisa)
+                // console.log(sisa)
                 $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
                 $('.sisa').text("Rp "+sisa.toLocaleString());
                 
