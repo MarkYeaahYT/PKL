@@ -221,5 +221,16 @@ class Anggaran_model extends CI_Model{
         $query = $this->db->get('anggaran');
         return $query->result();
     }
+
+    public function filter_data()
+    {
+        # code...
+        $from = $this->input->post("from");
+        $to = $this->input->post("to");
+
+        $this->db->where("date BETWEEN $from AND $to");
+        $query = $this->db->get("anggaran");
+        return $query->result();
+    }
 }
 ?>

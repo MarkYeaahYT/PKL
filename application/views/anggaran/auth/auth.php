@@ -19,7 +19,7 @@
                         <div class="form-group">
                             <div class="col-md-9">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" placeholder="">
+                                <input type="password" class="form-control" id="password" placeholder="">
                                 <div class="valid-feedback">
                                     <p class="autocomplete"></p>
                                 </div>

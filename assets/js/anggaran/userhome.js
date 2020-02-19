@@ -380,15 +380,31 @@ $(document).ready(function () {
                     // console.log(metode);
 
                     if(id != ""){
+                        if(status == "Reject"){
+                            total_harga_reject += parseInt(harga);
+                        }
                         $('#mytable tr').each(function (index, element) {
                             $(this).find(".item").val(item)
                             $(this).find(".Rp").val(harga)
                             $(this).find(".metode").val(metode)
     
                             $(this).find(".item").attr("data-id", id)
-                            $(this).find(".status").html("?");
-                            $(this).find(".status").attr("title", "Unresponse");
-                            $(this).find(".status").addClass("btn-info");
+                            // $(this).find(".status").html("?");
+                            // $(this).find(".status").attr("title", "Unresponse");
+                            // $(this).find(".status").addClass("btn-info");
+
+                            if(status == "Accept"){
+                                $(this).find(".status").html("<i class='fa fa-check' aria-hidden='true'></i>");
+                                $(this).find(".status").attr("title", "Accepted by Admin");
+                            }else if(status == "Reject"){
+                                $(this).find(".status").html("<i class='fa fa-times' aria-hidden='true'></i>");
+                                $(this).find(".status").attr("title", "Rejected by Admin");
+                                $(this).find(".status").parent().addClass("rejected");
+                            }else{
+                                $(this).find(".status").html("?");
+                                $(this).find(".status").attr("title", "Unresponse");
+                                $(this).find(".status").addClass("btn-info");
+                            }
                         });
                     }else{
                         $('#mytable tr').each(function (index, element) {

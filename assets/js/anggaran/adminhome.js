@@ -23,7 +23,7 @@ $(document).ready(function () {
             cssA = "style='opacity: 0.1;'"
             cssR = "style='opacity: 1;'"
             total_harga_reject += parseInt(harga);
-            htmlstatus = "data-status='0'"
+            htmlstatus = "class='rejected'";
             
         }else{
             cssA = "style='opacity: 1;'"
@@ -345,7 +345,7 @@ $(document).ready(function () {
                                     if(index == 1){
                                         total_harga_reject += parseInt(harga)
                                     }
-                                    $(this).find(".accept").parent().attr("data-status", "0")
+                                    $(this).find(".accept").parent().addClass("rejected");
                                 }else{
                                     $(this).find(".accept").css("opacity", "1");
                                     $(this).find(".reject").css("opacity", "1");
@@ -387,7 +387,11 @@ $(document).ready(function () {
                     // console.log(harga);
                     // console.log(metode);
 
+                    
                     if(id != ""){
+                        if(status == "Reject"){
+                            total_harga_reject += parseInt(harga);
+                        }
                         $('#mytable tr').each(function (index, element) {
                             $(this).find(".item").val(item)
                             $(this).find(".Rp").val(harga)
@@ -396,6 +400,18 @@ $(document).ready(function () {
                             $(this).find(".item").attr("data-id", id)
                             $(this).find(".accept").attr("data-id", id)
                             $(this).find(".reject").attr("data-id", id)
+
+                            if(status == "Accept"){
+                                $(this).find(".accept").css("opacity", "1");
+                                $(this).find(".reject").css("opacity", "0.2");
+                            }else if(status == "Reject"){
+                                $(this).find(".accept").css("opacity", "0.2");
+                                $(this).find(".reject").css("opacity", "1");
+                                $(this).find(".accept").parent().addClass("rejected");
+                            }else{
+                                $(this).find(".accept").css("opacity", "1");
+                                $(this).find(".reject").css("opacity", "1");
+                            }
                             
                         });
                     }else{

@@ -8,6 +8,23 @@
     </div>
     <hr>
     <div class="container-fluid">
+            <div class="form-inline">
+                <div class="col-auto">
+                    <label for="from">From</label>
+                    <input type="date" class="form-control" id="from">
+                </div>
+                <div class="col-auto">
+                    <label for="to">To</label>
+                    <input type="date" class="form-control" id="to">
+                </div>
+                <div class="col-auto pt-4">
+                    <!-- <label for="to">F</label> -->
+                    <input type="button" class="btn btn-info" id="btn_filter" value="Filter">
+                </div>
+            </div>
+    </div>
+    <br>
+    <div class="container-fluid">
         <table class="table table-striped" id="mytable">
             <thead>
                 <tr class="bg-light">
@@ -23,39 +40,14 @@
             </tbody>
         </table>
     </div>
-    <script>
-    $(document).ready(function () {
-        document.title += " | Admin";
-        var table = $('#mytable').DataTable({
-            ajax: {
-                url: "/alfabank/anggaran/show_data",
-                dataSrc: ''
-            },
-            columns: [
-                {data: 'id'},
-                {data: 'date'},
-                {render: function (data, type, row) {
-                    var Rp = parseInt(row.atm) ;
-                    return 'Rp '+Rp.toLocaleString();
-                 }},
-                {render: function (data, type, row) {
-                    var Rp = parseInt(row.pengeluaran) ;
-                    return 'Rp '+Rp.toLocaleString();
-                 }},
-                {render: function (data, type, row) {
-                    var Rp = parseInt(row.sisa) ;
-                    return 'Rp '+Rp.toLocaleString();
-                 }}
-            ]
-        });
-
-        // 
-        table.on('order.dt search.dt', function(){
-            table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) { 
-                cell.innerHTML = i + 1;
-          });
-    })
-        
-    });
-    </script>
+    <div class="container d-block pb-5">
+        <br>
+        <div class="float-right">
+            <h6 class="text-info" id="infofilter"></h6>
+            <h5 id="renderRp"></h5>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script src="<?php echo base_url("assets/js/anggaran/admindata.js") ?>"></script>
 </div>
