@@ -1,9 +1,7 @@
 $(document).ready(function () {
-    document.title += " | Admin";
-    /**
-     * Handle DataTable
-     */
-    var table = $('#mytable').DataTable({
+    document.title += " | User";
+        
+    var table = $("#mytable").DataTable({
         ajax: {
             url: "/alfabank/anggaran/show_data",
             dataSrc: ''
@@ -24,7 +22,7 @@ $(document).ready(function () {
                 return 'Rp '+Rp.toLocaleString();
              }}
         ]
-    });
+    })
 
     // 
     table.on('order.dt search.dt', function(){
@@ -84,4 +82,5 @@ $(document).ready(function () {
         });
         // endajax
     });
+    
 });
