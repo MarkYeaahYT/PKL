@@ -37,6 +37,9 @@ class Anggaran extends CI_Controller{
         /**
          * 1 admin
          * 2 user
+         * 
+         * bkk
+         * umum
          */
         # code...
         $data = $this->anggaran_model->auth();
@@ -46,6 +49,15 @@ class Anggaran extends CI_Controller{
                 "role" => $data[0]->role
             );
             $this->session->set_userdata($ss);
+
+            $cookie = array(
+                "name" => "currentRole",
+                "value" => $data[0]->role,
+                "path" => "/",
+                "expire" => "43200"
+            );
+
+            $this->input->set_cookie($cookie);
 
             echo json_encode($data);
         }else{

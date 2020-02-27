@@ -42,6 +42,19 @@
                     </div>
                 </div>
             </a>
+
+            <a href="/ci_alfa" style="text-decoration: none">
+                <div class="col-md-3">
+                    <div class="shadow-lg border border-dark card">
+                        <img class="card-img-top" src="<?php echo base_url('assets/icon/office.png'); ?>" width="64" height="216" alt="Image">
+                        <div class="card-body">
+                            <h5 class="card-title">Marketing </h5>
+                            <p class="card-text">marketing app</p>
+                            <a href="/ci_alfa" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                </div>
+            </a>
     </div>
 
     <script>

@@ -185,7 +185,12 @@ class Alumni_model extends CI_Model{
         # code...
         // $this->db->where('status');
         $res;
-        if($status != ""){
+        if($status == "Mencari Pekerjaan"){
+            $this->db->where('status', $status);
+            $this->db->or_where('status', "?");
+            $res = $this->db->get('alumni')->result();
+
+        }else if($status != ""){
             $this->db->where('status', $status);
             $res = $this->db->get('alumni')->result();
         }

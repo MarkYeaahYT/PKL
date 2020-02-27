@@ -663,7 +663,11 @@
             {data: 'id'},
             {data: 'nama'},
             {render: function(data, type, row){
-                return row.te_lahir+" "+row.ta_lahir;
+                if(row.te_lahir == null || row.ta_lahir == null){
+                    return "";
+                }else{
+                    return row.te_lahir+" "+row.ta_lahir;
+                }
             }},
             {data: 'alamat'},
             {data: 'no_hp'},
@@ -674,7 +678,11 @@
             {data: 'mulai_tanggal'},
             {data: 'posisi_pekerjaan'},
             {render: function(data, type, row){
-                return 'Rp '+row.gaji_pertama;
+                if(row.gaji_pertama == null){
+                    return "";
+                }else{
+                    return 'Rp '+row.gaji_pertama;
+                }
             }},
             {data: 'perusahaan_penerima'},
             {data: 'alamat_perusahaan'},
