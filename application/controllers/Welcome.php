@@ -9,22 +9,50 @@ class Welcome extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('inventory_model');
 		$this->load->model('jual_model');
+        $this->load->library('session');
+
 	}
 
 	public function index()
 	{
-		$this->load->view('home');
+		if($this->session->has_userdata('user')){
+			$data['user'] = $_SESSION['user'];
+			$this->load->view('home', $data);
+		}else{
+			$this->load->view("auth");
+		}
+
 	}
 	
 	public function dashboard()
 	{
-		$this->load->view('dashboard');
+		if($this->session->has_userdata('user')){
+			$role = $_SESSION['role'];
+			$data['user'] = $_SESSION['user'];
+			if($role == "3" || $role == "1"){
+				$this->load->view('dashboard', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
 	}
 
 	public function rusak()
 	{
 		# code...
-		$this->load->view('rusak');
+		if($this->session->has_userdata('user')){
+			$role = $_SESSION['role'];
+			$data['user'] = $_SESSION['user'];
+			if($role == "3" || $role == "1"){
+				$this->load->view('rusak', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
 	}
 
 	public function rusak_data()
@@ -37,7 +65,17 @@ class Welcome extends CI_Controller {
 	public function terjual()
 	{
 		# code...
-		$this->load->view('terjual');
+		if($this->session->has_userdata('user')){
+			$role = $_SESSION['role'];
+			$data['user'] = $_SESSION['user'];
+			if($role == "3" || $role == "1"){
+				$this->load->view('terjual', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
 	}
 
 	public function realtime()

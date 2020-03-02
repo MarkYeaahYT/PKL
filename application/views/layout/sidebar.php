@@ -7,7 +7,7 @@
     <div class="col mb-5 text-center">
         <img src="<?php echo  base_url('assets/icon/admin.png'); ?>" alt="" class="img-thumbnail mx-auto d-block">
         <p class="text-primary pt-2">Login As </p>
-        <h5 class="text-primary">Admin</h5>
+        <h5 class="text-primary"><?php echo $user; ?></h5>
     </div>
         <hr>
     <div class="container fluid">

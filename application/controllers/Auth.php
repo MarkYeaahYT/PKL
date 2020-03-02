@@ -7,12 +7,14 @@ class Auth extends CI_Controller{
         parent::__construct();
         $this->load->library('session');
         $this->load->helper('url');
+        $this->load->helper('cookie');
         $this->load->model("auth_model");
     }
 
     public function index()
     {
         # code...
+        $this->load->view("auth");
     }
 
     public function auth()
@@ -51,6 +53,7 @@ class Auth extends CI_Controller{
             $_SESSION['user'],
             $_SESSION['role']
         );
+        delete_cookie("currentRole");
         $data = array(
             'status' => 'YES'
         );

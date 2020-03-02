@@ -29,15 +29,7 @@
                 ShutDown END Session
              */
             $('#shutdown').on('click', function () {
-                $.ajax({
-                    type: "GET",
-                    url: "/alfabank/anggaran/shutdown",
-                    data: "",
-                    dataType: "JSON",
-                    success: function (response) {
-                        window.location.href = "/alfabank"
-                    }
-                });
+                window.location.href = "/alfabank"
             });
         });
     </script>

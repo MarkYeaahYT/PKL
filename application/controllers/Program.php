@@ -5,13 +5,24 @@ class Program extends CI_Controller{
         # code...
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
         $this->load->model('program_model');
     }
 
     public function index()
     {
         # code...
-        $this->load->view('program');
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            $data['user'] = $_SESSION['user'];
+			if($role == "4" || $role == "1"){
+                $this->load->view('program', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
     }
 
     public function data_xhr()

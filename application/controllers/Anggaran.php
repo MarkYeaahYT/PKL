@@ -26,6 +26,8 @@ class Anggaran extends CI_Controller{
                 $this->load->view('anggaran/adminhome');
             }else if($role == "2"){
                 $this->load->view('anggaran/userhome');
+            }else{
+                $this->load->view('errors/forbidden');
             }
         }else{
             $this->load->view('errors/forbidden');

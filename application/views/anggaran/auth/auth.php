@@ -34,4 +34,4 @@
         </div>
     </div>
 </form>
-<script src="<?php echo base_url('assets/js/anggaran/auth.js') ?>"></script>
+<script src="<?php //echo base_url('assets/js/anggaran/auth.js') ?>"></script>

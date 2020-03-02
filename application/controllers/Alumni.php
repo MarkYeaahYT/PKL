@@ -6,19 +6,40 @@ class Alumni extends CI_Controller{
         # code...
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
         $this->load->model('alumni_model');
     }
 
     public function index()
     {
         # code...
-        $this->load->view('dashboard_alumni');
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            $data['user'] = $_SESSION['user'];
+            if($role == "4" || $role == "1"){
+                $this->load->view('dashboard_alumni', $data);
+            }else{
+                $this->load->view('errors/forbidden');
+            }
+        }else{
+            $this->load->view('errors/forbidden');
+        }
     }
 
     public function data()
     {
         # code...
-        $this->load->view('data_alumni');
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            $data['user'] = $_SESSION['user'];
+			if($role == "4" || $role == "1"){
+                $this->load->view('data_alumni', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
     }
     
     public function data_xhr()
@@ -67,7 +88,17 @@ class Alumni extends CI_Controller{
     public function filter()
     {
         # code...
-        $this->load->view('filter');
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            $data['user'] = $_SESSION['user'];
+			if($role == "4" || $role == "1"){
+                $this->load->view('filter', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
     }
 
     public function filter_xhr()

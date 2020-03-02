@@ -8,6 +8,9 @@
         <img class="img-thumbnail mx-auto d-block" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset="">
         <div class="pb-3"></div>
         <img class="img-thumbnail mx-auto d-block" src="<?php echo base_url('assets/icon/alumni.png'); ?>" alt="" srcset="">
+        <div class="col m-auto pt-3">
+            <h5 class="text-info">Login as <?php echo $user ?></h5>
+        </div>
     </div>
 
     <ul class="list-unstyled components">

@@ -6,6 +6,7 @@ class Inventory extends CI_Controller{
     {
         parent::__construct();
 		$this->load->helper('url');
+        $this->load->library('session');
 		$this->load->model('inventory_model');
 	}
 	
@@ -21,13 +22,33 @@ class Inventory extends CI_Controller{
 
     public function data()
 	{
-		$this->load->view('data');
+		if($this->session->has_userdata('user')){
+			$role = $_SESSION['role'];
+			$data['user'] = $_SESSION['user'];
+			if($role == "3" || $role == "1"){
+				$this->load->view('data', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
 	}
 	
 	public function ruang()
 	{
 		# code...
-		$this->load->view('ruang');
+		if($this->session->has_userdata('user')){
+			$role = $_SESSION['role'];
+			$data['user'] = $_SESSION['user'];
+			if($role == "3" || $role == "1"){
+				$this->load->view('ruang', $data);
+			}else{
+                $this->load->view('errors/forbidden');
+			}
+		}else{
+			$this->load->view('errors/forbidden');
+		}
 	}
     
     public function add()
