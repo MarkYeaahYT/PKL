@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Home</title>
@@ -12,9 +12,14 @@
 </head>
 <body style="background-image: url(<?php echo base_url('assets/icon/blue.jpg'); ?>);background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="navbar navbar-expand-md bg-light sticky-top myheader">
-        <a href="/"><img width="120" height="60" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset=""></a>
-        <h4 class="pt-2 m-auto">SIM Administrasi Alfabank Yogyakarta</h4>
+        <a href="/"><img width="150" height="60" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset=""></a>
+        <h1 class="pt-2 m-auto">SIM Administrasi Alfabank Yogyakarta</h1>
         <h6 class="pt-2 pr-2 float-right text-info">User: <?php echo $user; ?> !</h6>
+
+        <?php if($_SESSION['role'] == "1"): ?>
+            <a class="pr-2" id="profile" title="Profile Admin" href="/alfabank/profile/"><img src="<?php echo base_url('assets/icon/profile.png'); ?>" width="25" height="25" alt="" srcset=""></a>
+        <?php endif; ?>
+
         <a id="shutdown" title="Logout App" href="javascript:void(0)"><img class="power" src="<?php echo base_url('assets/icon/power.png'); ?>" width="25" height="25" alt="" srcset=""></a>
 
     </div>
