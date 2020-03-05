@@ -12,16 +12,19 @@
 </head>
 <body style="background-image: url(<?php echo base_url('assets/icon/blue.jpg'); ?>);background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="navbar navbar-expand-md bg-light sticky-top myheader">
-        <a href="/"><img width="150" height="60" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset=""></a>
-        <h1 class="pt-2 m-auto">SIM Administrasi Alfabank Yogyakarta</h1>
-        <h6 class="pt-2 pr-2 float-right text-info">User: <?php echo $user; ?> !</h6>
-
-        <?php if($_SESSION['role'] == "1"): ?>
-            <a class="pr-2" id="profile" title="Profile Admin" href="/alfabank/profile/"><img src="<?php echo base_url('assets/icon/profile.png'); ?>" width="25" height="25" alt="" srcset=""></a>
-        <?php endif; ?>
-
-        <a id="shutdown" title="Logout App" href="javascript:void(0)"><img class="power" src="<?php echo base_url('assets/icon/power.png'); ?>" width="25" height="25" alt="" srcset=""></a>
-
+        <a href="/"><img class="alficon" width="150" height="60" src="" alt="" srcset=""></a>
+        <div class="col-md-9">
+            <h1 class="pt-2 m-auto title"></h1>
+            <h5 class="alamat"></h5>
+            <h5 class="tlp"></h5>
+        </div>
+        <div class="col-md-2">
+            <h6 >User: <?php echo $user; ?> !</h6>
+            <?php if($_SESSION['role'] == "1"): ?>
+                <a class="pr-2" id="profile" title="Profile Admin" href="/alfabank/profile/"><img src="<?php echo base_url('assets/icon/profile.png'); ?>" width="25" height="25" alt="" srcset=""></a>
+            <?php endif; ?>
+            <a id="shutdown" title="Logout App" href="javascript:void(0)"><img class="power" src="<?php echo base_url('assets/icon/power.png'); ?>" width="25" height="25" alt="" srcset=""></a>
+        </div>
     </div>
 
     <div class="pb-5"></div>

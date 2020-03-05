@@ -17,7 +17,7 @@
         <li>
             <hr>
             <div class="container fluid">
-                <a href="<?php echo base_url('profile/'); ?>">
+                <a href="<?php echo base_url('profile/manageuser'); ?>">
                     <div class="row">
                         <div class="col-md-1">
                             <img src="<?php echo base_url('assets/icon/data.png'); ?>" width="20" height="20" alt="" srcset="">

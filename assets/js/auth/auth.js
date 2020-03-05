@@ -23,4 +23,22 @@ $(document).ready(function () {
             }
         });
     });
+
+    /////////////
+
+    /**
+     * Set Title in login
+     */
+    $.ajax({
+        type: "GET",
+        url: "/alfabank/profile/dataprofile",
+        data: {
+            ishome: true
+        },
+        dataType: "JSON",
+        success: function (response) {
+            $(".title").text(response[0].title);
+            $(".alficon").attr("src", "/alfabank/uploads/"+response[0].logo);
+        }
+    });
 });

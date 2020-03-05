@@ -6,24 +6,24 @@
             <!-- Modal Auth -->
         
             <a href="<?php echo base_url('welcome/dashboard'); ?>" style="text-decoration: none">
-                <div class="col-md-3">
+                <div class="col-md-3 inventory">
                     <div class="shadow-lg border border-dark card">
-                        <img class="card-img-top" src="<?php echo base_url('assets/icon/cloudstorage.png'); ?>" width="64" height="216" alt="Image">
+                        <img class="card-img-top" src="" width="64" height="216" alt="Image">
                         <div class="card-body">
-                            <h5 class="card-title">Inventory</h5>
-                            <p class="card-text">for user umum</p>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
                             <a href="<?php echo base_url('welcome/dashboard'); ?>" class="btn btn-primary">Go</a>
                         </div>
                     </div>
                 </div>
             </a>
             <a href="<?php echo base_url('alumni'); ?>" style="text-decoration: none">
-                <div class="col-md-3">
+                <div class="col-md-3 dataalumni">
                     <div class="shadow-lg border border-dark card">
-                        <img class="card-img-top" src="<?php echo base_url('assets/icon/alumni.png'); ?>" width="64" height="216" alt="Image">
+                        <img class="card-img-top" src="" width="64" height="216" alt="Image">
                         <div class="card-body">
-                            <h5 class="card-title">Data Alumni</h5>
-                            <p class="card-text">for user bkk</p>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
                             <a href="<?php echo base_url('alumni'); ?>" class="btn btn-primary">Go</a>
                         </div>
                     </div>
@@ -31,12 +31,12 @@
             </a>
 
             <a href="<?php echo site_url("anggaran/") ?>" style="text-decoration: none">
-                <div class="col-md-3 auth">
+                <div class="col-md-3 anggaran">
                     <div class="shadow-lg border border-dark card">
-                        <img class="card-img-top" src="<?php echo base_url('assets/icon/anggaran/money.png'); ?>" width="64" height="216" alt="Image">
+                        <img class="card-img-top" src="" width="64" height="216" alt="Image">
                         <div class="card-body">
-                            <h5 class="card-title">Anggaran</h5>
-                            <p class="card-text">for user keuangan</p>
+                            <h5 class="card-title"></h5>
+                            <p class="card-text"></p>
                             <a href="<?php echo site_url("anggaran/") ?>" class="btn btn-primary">Go</a>
                         </div>
                     </div>
@@ -44,12 +44,12 @@
             </a>
 
             <a href="/ci_alfa" style="text-decoration: none">
-                <div class="col-md-3">
+                <div class="col-md-3 marketing">
                     <div class="shadow-lg border border-dark card">
-                        <img class="card-img-top" src="<?php echo base_url('assets/icon/office.png'); ?>" width="64" height="216" alt="Image">
+                        <img class="card-img-top" src="" width="64" height="216" alt="Image">
                         <div class="card-body">
-                            <h5 class="card-title">Marketing </h5>
-                            <p class="card-text">marketing app</p>
+                            <h5 class="card-title"> </h5>
+                            <p class="card-text"></p>
                             <a href="/ci_alfa" class="btn btn-primary">Go</a>
                         </div>
                     </div>
@@ -57,3 +57,4 @@
             </a>
     </div>
 </div>
+<script src="<?php echo base_url("assets/js/home.js") ?>"></script>

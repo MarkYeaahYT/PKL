@@ -24,6 +24,21 @@ class Profile extends CI_Controller{
             $this->load->view('errors/forbidden');
         }
     }
+    
+    public function manageuser()
+    {
+        # code...
+        if($this->session->has_userdata('user')){
+            $role = $_SESSION['role'];
+            if($role == "1"){
+                $this->load->view("profile/manageuserrender");
+            }else{
+                $this->load->view('errors/forbidden');
+            }
+        }else{
+            $this->load->view('errors/forbidden');
+        }
+    }
 
     public function add()
     {
@@ -47,6 +62,24 @@ class Profile extends CI_Controller{
     {
         # code...
         echo json_encode($this->profile_model->show_xhr());
+    }
+    
+    public function upload()
+    {
+        # code...
+        echo json_encode($this->profile_model->upload());
+    }
+
+    public function save()
+    {
+        # code...
+        echo json_encode($this->profile_model->save_profile());
+    }
+
+    public function dataprofile()
+    {
+        # code...
+        echo json_encode($this->profile_model->dataprofile());
     }
 }
 ?>
