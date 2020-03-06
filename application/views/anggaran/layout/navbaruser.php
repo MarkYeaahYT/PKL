@@ -7,7 +7,7 @@
     <div class="sidebar-header pt-5">
         <img class="img-thumbnail mx-auto d-block" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset="">
         <div class="pb-3"></div>
-        <img class="img-thumbnail mx-auto d-block" src="<?php echo base_url('assets/icon/anggaran/money.png'); ?>" alt="" srcset="">
+        <img class="img-thumbnail mx-auto d-block myicon" src="" alt="" srcset="">
         <div class="col m-auto pt-3">
             <h5 class="text-info">Login As User</h5>
         </div>
@@ -64,6 +64,16 @@
             $('.overlay').addClass('active');
             $('.collapse.in').toggleClass('in');
             $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/profile/dataprofile",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                $(".myicon").attr("src", "/alfabank/uploads/"+response[2].logo);
+            }
         });
     });
 </script>

@@ -5,7 +5,7 @@
         <!-- <h5 class="text-primary">Admin</h5> -->
     </div>
     <div class="col mb-5 text-center">
-        <img src="<?php echo  base_url('assets/icon/admin.png'); ?>" alt="" class="img-thumbnail mx-auto d-block">
+        <img src="" alt="" class="myicon img-thumbnail mx-auto d-block">
         <p class="text-primary pt-2">Login As </p>
         <h5 class="text-primary"><?php echo $user; ?></h5>
     </div>
@@ -44,3 +44,17 @@
         <hr>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/profile/dataprofile",
+            data: "",
+            dataType: "JSON",
+            success: function (response) {
+                $(".myicon").attr("src", "/alfabank/uploads/"+response[0].logo);
+                
+            }
+        });
+    });
+</script>

@@ -17,6 +17,21 @@
         <li>
             <hr>
             <div class="container fluid">
+                <a href="<?php echo base_url('profile/'); ?>">
+                    <div class="row">
+                        <div class="col-md-1">
+                            <img src="<?php echo base_url('assets/icon/dashboard.png'); ?>" width="20" height="20" alt="" srcset="">
+                        </div>
+                        <div class="col-md-1">
+                            Appearance
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </li>
+        <li>
+            <hr>
+            <div class="container fluid">
                 <a href="<?php echo base_url('profile/manageuser'); ?>">
                     <div class="row">
                         <div class="col-md-1">
