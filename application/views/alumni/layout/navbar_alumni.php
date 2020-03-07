@@ -5,7 +5,7 @@
     </div>
 
     <div class="sidebar-header pt-5">
-        <img class="img-thumbnail mx-auto d-block" src="<?php echo base_url('assets/icon/alfabank.png'); ?>" alt="" srcset="">
+        <img class="mylogo img-thumbnail mx-auto d-block" src="" alt="" srcset="">
         <div class="pb-3"></div>
         <img class="img-thumbnail mx-auto d-block myicon" src="" alt="" srcset="">
         <div class="col m-auto pt-3">
@@ -90,6 +90,18 @@
             dataType: "JSON",
             success: function (response) {
                 $(".myicon").attr("src", "/alfabank/uploads/"+response[1].logo);
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "/alfabank/profile/dataprofile",
+            data: {
+                ishome: true
+            },
+            dataType: "JSON",
+            success: function (response) {
+                $(".mylogo").attr("src", "/alfabank/uploads/"+response[0].logo);
             }
         });
     });
