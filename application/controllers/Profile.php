@@ -81,5 +81,11 @@ class Profile extends CI_Controller{
         # code...
         echo json_encode($this->profile_model->dataprofile());
     }
+
+    public function geticode()
+    {
+        # code...
+        echo json_encode($this->profile_model->geticode());
+    }
 }
 ?>

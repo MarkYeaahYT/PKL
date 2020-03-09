@@ -133,11 +133,13 @@ $(document).ready(function () {
         var appname;
         if (id == "1"){
             appname = $("#iinventory").val();
+            iicode = $("#iicode").val();
             $.ajax({
                 type: "POST",
                 url: "/alfabank/profile/save",
                 data: {
                     appname: appname,
+                    iicode: iicode,
                     id: id
                 },
                 dataType: "JSON",
@@ -318,6 +320,19 @@ $(document).ready(function () {
         success: function (response) {
             $("#home").find("img").attr("src", "/alfabank/uploads/"+response[0].logo);
             
+        }
+    });
+
+    /**
+     * Set Inventory Code
+     */
+    $.ajax({
+        type: "GET",
+        url: "/alfabank/profile/geticode",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            $("#iicode").val(response[0].code);
         }
     });
 });

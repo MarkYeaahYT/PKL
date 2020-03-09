@@ -54,6 +54,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                          <label for="iicode" class="col-sm-2 col-form-label">Inventory Code</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="iicode">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <div class="col-md-8">
                                 <div class="d-block float-right">
                                     <button class="btn btn-success save" data-id="1">Save</button>

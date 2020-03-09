@@ -92,13 +92,26 @@ class Profile_model extends CI_Model{
             $this->db->where("id", $id);
             return $this->db->update("profilealf");
         }else{
-            $appname = $this->input->post("appname");
-            $id = $this->input->post("id");
-            $this->db->set("app", $appname);
-            $this->db->where("id", $id);
-            $this->db->update("profile");
-            return $appname;
+            $iicode = $this->input->post("iicode");
+            if(isset($iicode)){
+                $appname = $this->input->post("appname");
+                $id = $this->input->post("id");
+                $this->db->set("app", $appname);
+                $this->db->where("id", $id);
+                $this->db->update("profile");
 
+                $this->db->set("code", $iicode);
+                $this->db->update("inventory_code");
+                return $appname;
+            }else{
+                $appname = $this->input->post("appname");
+                $id = $this->input->post("id");
+                $this->db->set("app", $appname);
+                $this->db->where("id", $id);
+                $this->db->update("profile");
+                return $appname;
+
+            }
         }
     }
 
@@ -111,6 +124,12 @@ class Profile_model extends CI_Model{
         }else{
             return $this->db->get("profile")->result();
         }
+    }
+
+    public function geticode()
+    {
+        # code...
+        return $this->db->get("inventory_code")->result();
     }
 
 }

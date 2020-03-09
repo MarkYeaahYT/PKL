@@ -34,6 +34,20 @@ $(document).ready(function () {
         }
         return res;
     }
+
+    /**
+     * Get Inventory Code
+     */
+    var iicode = "";
+    $.ajax({
+        type: "GET",
+        url: "/alfabank/profile/geticode",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            iicode = response[0].code;
+        }
+    });
     
     
     var cat = "";
@@ -58,13 +72,13 @@ $(document).ready(function () {
         });
     }
 
-    var no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+    var no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
     
     // cat
     $('#cat > option[value="NE"]').on('click', function () {
         cat = $(this).val();
         realtime()
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
         
@@ -72,7 +86,7 @@ $(document).ready(function () {
     $('#cat > option[value="EL"]').on('click', function () {
         cat = $(this).val();
         realtime()
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
     });
@@ -81,7 +95,7 @@ $(document).ready(function () {
     $('#nama').keyup(function (e) { 
         nama = $(this).val();
         realtime()
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
     });
@@ -96,7 +110,7 @@ $(document).ready(function () {
         bln = romawi(spl[1]);
         realtime()
         
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         // console.log(no_invent);
         $('#no_inventaris').val(no_invent);
     })
@@ -105,27 +119,27 @@ $(document).ready(function () {
     $('#kondisi').change(function (e) { 
         e.preventDefault();
         realtime();
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         $('#no_inventaris').val(no_invent);
     });
     
     $('#harga').keyup(function (e) { 
         realtime();
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         $('#no_inventaris').val(no_invent);
     });
     
     $('#status').change(function (e) { 
         e.preventDefault();
         realtime();
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         $('#no_inventaris').val(no_invent);
     });
     
     $('#ruang').change(function (e) { 
         e.preventDefault();
         realtime();
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         $('#no_inventaris').val(no_invent);
     });
 
@@ -178,7 +192,7 @@ $(document).ready(function () {
         thn = spl[0];
         bln = romawi(spl[1]);
         realtime();
-        no_invent = 'ALF-YK/'+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
+        no_invent = iicode+cat+'/'+nama+'/'+bln+'/'+thn+'/'+no_urut;
         $('#no_inventaris').val(no_invent);
 
     });
