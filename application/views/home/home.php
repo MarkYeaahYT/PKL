@@ -43,14 +43,14 @@
                 </div>
             </a>
 
-            <a href="/ci_alfa" style="text-decoration: none">
+            <a href="/ci_alfa/dashboard" style="text-decoration: none">
                 <div class="col-md-3 marketing">
                     <div class="shadow-lg border border-dark card">
                         <img class="card-img-top" src="" width="64" height="216" alt="Image">
                         <div class="card-body">
                             <h5 class="card-title"> </h5>
                             <p class="card-text"></p>
-                            <a href="/ci_alfa" class="btn btn-primary">Go</a>
+                            <a href="/ci_alfa/dashboard" class="btn btn-primary">Go</a>
                         </div>
                     </div>
                 </div>

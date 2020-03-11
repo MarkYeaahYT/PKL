@@ -258,6 +258,7 @@ $(document).ready(function () {
         dataType: "JSON",
         success: function (response) {
             $('#kastangan').val(response.kas_tangan);
+            $("#kastangan").attr("title", "kas tangan "+response.datekas);
             $('#atm').val(response.atm);
             kastangan = $('#kastangan').val();
             atm = $('#atm').val();

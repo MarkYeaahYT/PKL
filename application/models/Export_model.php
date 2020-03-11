@@ -15,7 +15,8 @@ class Export_model extends CI_Model{
         $pdf = new FPDF('l','mm','A5');
         // membuat halaman baru
         $pdf->AddPage();
-        $pdf->Image(base_url('assets/icon/lgopdf3.png'),5, 5);
+        // $pdf->Image(base_url('assets/icon/lgopdf3.png'),5, 5);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/alfabank/assets/icon/lgopdf3.png',5, 5);
         $pdf->SetFont('Arial','',8);
         $pdf->Cell(190,7,'',0,1,'C');
         $pdf->Cell(190,6,'',0,1,'C');
@@ -78,7 +79,7 @@ class Export_model extends CI_Model{
         $pdf = new FPDF();
         // membuat halaman baru
         $pdf->AddPage('L', 'A5');
-        $pdf->Image(base_url('assets/icon/lgopdf3.png'),5, 5);
+        $pdf->Image($_SERVER['DOCUMENT_ROOT'].'/alfabank/assets/icon/lgopdf3.png',5, 5);
         $pdf->SetFont('Arial','',8);
         $pdf->Cell(190,7,'',0,1,'C');
         $pdf->Cell(190,6,'',0,1,'C');
