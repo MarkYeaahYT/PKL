@@ -23,21 +23,51 @@ class Anggaran_model extends CI_Model{
          * else insert
          */
         # code...
+        $freturn1 = null;
+        $freturn2 = null;
+
+        $kasdate = $this->input->post("kasdate");
+        $kastangan = $this->input->post("kastangan");
+
         $datenow = $this->input->post('datenow');
         $atm = $this->input->post('atm');
         $this->db->where('date', $datenow);
         $query = $this->db->get('anggaran');
+
+        /**
+         * If kasdate empty insert into 1 day before
+         * else update
+         */
+        if($kasdate == ""){
+            $day_before = date('y-m-d', strtotime($datenow.'-1 day'));
+            $this->db->set("sisa", $kastangan);
+            $this->db->set("date", $day_before);
+            $q = $this->db->insert("anggaran");
+            $freturn1 = $q;
+            
+        }else{
+            $this->db->set("sisa", $kastangan);
+            $this->db->where("date", $kasdate);
+            $q = $this->db->update("anggaran");
+            $freturn1 = $q;
+
+        }
+        // 
         if($query->num_rows() > 0){
             $this->db->where('date', $datenow);
             $this->db->set('atm', $atm);
             $query = $this->db->update('anggaran');
-            return $query;
+            $freturn2 = $query;
         }else{
             $this->db->set('atm', $atm);
             $this->db->set('date', $datenow);
             $query = $this->db->insert('anggaran');
-            return $query;
+            $freturn2 = $query;
         }
+
+        
+
+        return $freturn1."-".$freturn2;
 
     }
 
@@ -46,6 +76,8 @@ class Anggaran_model extends CI_Model{
         # code...
         $datenow = $this->input->post('datenow');
         $day_before = date('y-m-d', strtotime($datenow.'-1 day'));
+
+        $checkfirst = $this->db->get("anggaran")->num_rows();
 
         $this->db->where('date', $datenow);
         $now = $this->db->get('anggaran');
@@ -58,28 +90,39 @@ class Anggaran_model extends CI_Model{
 
         $loop = 0;
 
-        while($before->num_rows() == 0){
-            $loop += 1;
-            $day_before = date('y-m-d', strtotime($datenow.'-'.strval($loop).' day'));
-            $this->db->where('date', $day_before);
-            $before = $this->db->get('anggaran');
-        }
-        
-        $resb = $before->result();
-        
-        if($now->num_rows() < 1){
+        if($checkfirst != 0){
+            while($before->num_rows() == 0){
+                $loop += 1;
+                $day_before = date('y-m-d', strtotime($datenow.'-'.strval($loop).' day'));
+                $this->db->where('date', $day_before);
+                $before = $this->db->get('anggaran');
+            }
+            
+            $resb = $before->result();
+            
+            if($now->num_rows() < 1){
+                $result = array(
+                    'atm' => "0",
+                    'kas_tangan' => $resb[0]->sisa,
+                    "datekas" => str_replace("-", "", $resb[0]->date)
+                );
+            }else if($now->num_rows() > 0){
+                $result = array(
+                    'atm' => $resn[0]->atm,
+                    'kas_tangan' => $resb[0]->sisa,
+                    "datekas" => str_replace("-", "", $resb[0]->date)
+                );
+            }
+            
+        }else{
             $result = array(
-                'atm' => "0",
-                'kas_tangan' => $resb[0]->sisa,
-                "datekas" => str_replace("-", "", $resb[0]->date)
+                'atm' => "",
+                'kas_tangan' => "",
+                "datekas" => ""
             );
-        }else if($now->num_rows() > 0){
-            $result = array(
-                'atm' => $resn[0]->atm,
-                'kas_tangan' => $resb[0]->sisa,
-                "datekas" => str_replace("-", "", $resb[0]->date)
-            );
+
         }
+
 
         return $result;
     }

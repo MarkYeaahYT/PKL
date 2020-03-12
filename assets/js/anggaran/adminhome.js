@@ -100,7 +100,14 @@ $(document).ready(function () {
      */
     $('.save_saldo').on('click', function () {
         kastangan = $('#kastangan').val();
+        if(kastangan == ""){
+            kastangan = 0;
+        }
+        kasdate = $("#kastangan_date").val();
         atm = $('#atm').val();
+        if(atm == ""){
+            atm = 0;
+        }
         totalsaldo = parseInt(kastangan) + parseInt(atm)
         $('.total_saldo').text("Rp "+totalsaldo.toLocaleString());
         $.ajax({
@@ -108,12 +115,30 @@ $(document).ready(function () {
             url: "/alfabank/anggaran/save_dana",
             data: {
                 datenow: datenow,
-                atm: atm
+                atm: atm,
+                kasdate: kasdate,
+                kastangan: kastangan
             },
             dataType: "JSON",
             success: function (response) {
                 sisa = totalsaldo - total_harga_item;
                 $('.sisa').text("Rp "+sisa.toLocaleString());
+
+                /**
+                 * Set kasdate
+                 */
+                $.ajax({
+                    type: "POST",
+                    url: "/alfabank/anggaran/show_dana",
+                    data: {
+                        datenow: datenow
+                    },
+                    dataType: "JSON",
+                    success: function (response) {
+                        $("#kastangan").attr("title", "kas tangan "+response.datekas);
+                        $("#kastangan_date").val(response.datekas);
+                    }
+                });
             }
         });
     });
@@ -275,9 +300,16 @@ $(document).ready(function () {
         success: function (response) {
             $('#kastangan').val(response.kas_tangan);
             $("#kastangan").attr("title", "kas tangan "+response.datekas);
+            $("#kastangan_date").val(response.datekas);
             $('#atm').val(response.atm);
             kastangan = $('#kastangan').val();
+            if(kastangan == ""){
+                kastangan = 0;
+            }
             atm = $('#atm').val();
+            if(atm == ""){
+                atm = 0;
+            }
             totalsaldo = parseInt(kastangan) + parseInt(atm)
             $('.total_saldo').text("Rp "+totalsaldo.toLocaleString());
 

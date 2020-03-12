@@ -12,7 +12,7 @@
 			</div>
 
 			<br>
-
+			<input type="hidden" name="kastangan_date" id="kastangan_date">
             <table class="table">
                 <thead class="thead-dark">
                   <tr>
