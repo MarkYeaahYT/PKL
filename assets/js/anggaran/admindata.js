@@ -1,5 +1,6 @@
 $(document).ready(function () {
     document.title += " | Admin";
+    
     /**
      * Handle DataTable
      */
@@ -12,16 +13,40 @@ $(document).ready(function () {
             {data: 'id'},
             {data: 'date'},
             {render: function (data, type, row) {
-                var Rp = parseInt(row.atm) ;
-                return 'Rp '+Rp.toLocaleString();
+                if(row.atm != null){
+                    var Rp = parseInt(row.atm) ;
+                    return 'Rp '+Rp.toLocaleString();
+                }else{
+                    var Rp = 0;
+                    return 'Rp '+Rp.toLocaleString();
+                }
              }},
             {render: function (data, type, row) {
-                var Rp = parseInt(row.pengeluaran) ;
-                return 'Rp '+Rp.toLocaleString();
+                if(row.pengeluaran != null){
+                    var Rp = parseInt(row.pengeluaran) ;
+                    return 'Rp '+Rp.toLocaleString();
+                }else{
+                    var Rp = 0;
+                    return 'Rp '+Rp.toLocaleString();
+                }
              }},
             {render: function (data, type, row) {
-                var Rp = parseInt(row.sisa) ;
-                return 'Rp '+Rp.toLocaleString();
+                if(row.pengeluaran_transfer != null){
+                    var Rp = parseInt(row.pengeluaran_transfer) ;
+                    return 'Rp '+Rp.toLocaleString();
+                }else{
+                    var Rp = 0;
+                    return 'Rp '+Rp.toLocaleString();
+                }
+             }},
+            {render: function (data, type, row) {
+                if(row.sisa != null){
+                    var Rp = parseInt(row.sisa) ;
+                    return 'Rp '+Rp.toLocaleString();
+                }else{
+                    var Rp = 0;
+                    return 'Rp '+Rp.toLocaleString();
+                }
              }}
         ]
     });
@@ -32,6 +57,32 @@ $(document).ready(function () {
             cell.innerHTML = i + 1;
         });
     })
+
+    /**
+     * Set Total Tunai & Transfer
+     */
+    var ttunai = 0;
+    var ttransfer = 0;
+    $.ajax({
+        type: "GET",
+        url: "/alfabank/anggaran/show_data",
+        data: "",
+        dataType: "JSON",
+        success: function (response) {
+            response.forEach(element => {
+                if(element.pengeluaran != null){
+                    ttunai += parseInt(element.pengeluaran);
+                }
+
+                if(element.pengeluaran_transfer != null){
+                    ttransfer += parseInt(element.pengeluaran_transfer);
+                }
+            });
+            
+            $("#ttunai").text("Rp "+ttunai.toLocaleString());
+            $("#ttransfer").text("Rp "+ttransfer.toLocaleString());
+        }
+    });
 
     /**
      * Handle Filter
@@ -62,6 +113,7 @@ $(document).ready(function () {
         from = from.replace(/-/g, "");
         to = to.replace(/-/g, "");
         var Rp = 0;
+        var Rptransfer = 0;
         // ajax
         $.ajax({
             type: "POST",
@@ -73,13 +125,23 @@ $(document).ready(function () {
             dataType: "JSON",
             success: function (response) {
                 response.forEach(element => {
-                    Rp += parseInt(element.pengeluaran);
+                    if(element.pengeluaran != null){
+                        Rp += parseInt(element.pengeluaran);
+                    }
+                    if(element.pengeluaran_transfer != null){
+                        Rptransfer += parseInt(element.pengeluaran_transfer);
+                    }
                 });
                 $("#infofilter").text(text);
+                $(".txttunai").text("Tunai");
+                $(".txttransfer").text("Transfer");
                 $("#renderRp").text("Rp "+Rp.toLocaleString());
+                $("#renderRp_transfer").text("Rp "+Rptransfer.toLocaleString());
                 location.href = "#infofilter";
                 $("#renderRp").fadeOut();
                 $("#renderRp").fadeIn();
+                $("#renderRp_transfer").fadeOut();
+                $("#renderRp_transfer").fadeIn();
             }
         });
         // endajax

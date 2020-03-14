@@ -74,19 +74,25 @@
                 <div class="float-left">
 					<br>
 					<br>
-					<p class="text-dark">Total</p>
-					<p class="text-info">Sisa</p>
+					<p class="text-dark">Total Tunai</p>
+					<p class="text-dark">Total Transfer</p>
+					<p class="text-info">Sisa Tunai</p>
                     
                 </div>
                 <div class="float-right">
                     <button class="save-item btn btn-success"> Save </button>
                     <button class="add-item btn btn-success"> <i class="fas fa-plus"></i> </button>
+					<br>
+					<br>
                     <p class="text-dark total_harga_item">Rp </p>
+                    <p class="text-dark total_transfer">Rp </p>
                     <p class="text-info sisa">Rp </p>
 
                 </div>
             </div>
         </div>
+		<br>
+		<br>
 		<br>
 		<br>
 		<br>

@@ -216,6 +216,7 @@ class Anggaran_model extends CI_Model{
         # code...
         $sisa = $this->input->post('sisa');
         $pengeluaran = $this->input->post('pengeluaran');
+        $pengeluaran_transfer = $this->input->post('pengeluaran_transfer');
         $datenow = $this->input->post('datenow');
 
         $this->db->where('date', $datenow);
@@ -224,6 +225,7 @@ class Anggaran_model extends CI_Model{
             $this->db->where('date', $datenow);
             $this->db->set('sisa', $sisa);
             $this->db->set('pengeluaran', $pengeluaran);
+            $this->db->set('pengeluaran_transfer', $pengeluaran_transfer);
             $query = $this->db->update('anggaran');
             return $query;
         }else{
