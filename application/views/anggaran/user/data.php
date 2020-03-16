@@ -31,7 +31,8 @@
                     <td>No</td>
                     <td>Date</td>
                     <td>Atm</td>
-                    <td>Pengeluaran</td>
+                    <td>Pengeluaran Tunai</td>
+                    <td>Pengeluaran Transfer</td>
                     <td>Sisa</td>
                 </tr>
             </thead>
@@ -42,10 +43,25 @@
     </div>
     <div class="container d-block pb-5">
         <br>
-        <div class="float-right">
-            <h6 class="text-info" id="infofilter"></h6>
-            <h5 id="renderRp"></h5>
+        <div>
+            <div class="float-left">
+                <h6 class="text-info">Total Tunai</h6>
+                <h5 id="ttunai"></h5>
+                <h6 class="text-info">Total Transfer</h6>
+                <h5 id="ttransfer"></h5>
+            </div>
+            <div class="float-right">
+                <h6 class="text-info" id="infofilter"></h6>
+                <h6 class="text-info txttunai"></h6>
+                <h5 id="renderRp"></h5>
+                <h6 class="text-info txttransfer"></h6>
+                <h5 id="renderRp_transfer"></h5>
+            </div>
         </div>
+        <br>
+        <br>
+        <br>
+        <br>
         <br>
         <br>
     </div>

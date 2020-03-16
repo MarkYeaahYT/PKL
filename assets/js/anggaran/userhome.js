@@ -9,7 +9,9 @@ $(document).ready(function () {
     var datenow = new Date().toISOString().slice(0,10);
     
     var total_harga_item = 0
+    var total_transfer = 0;
     var total_harga_reject = 0
+    var total_transfer_reject = 0;
     var sisa = 0
 
     function renderrow(row, id, item, harga, metode, status) {
@@ -19,7 +21,11 @@ $(document).ready(function () {
             html = "<a title='Accepted by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-check' aria-hidden='true'></i></a>"
             htmlstatus = "";
         }else if(status == "Reject"){
-            total_harga_reject += parseInt(harga);
+            if(metode == "Tunai"){
+                total_harga_reject += parseInt(harga);
+            }else if(metode == "Transfer"){
+                total_transfer_reject += parseInt(harga);
+            }
             html = "<a title='Rejected by Admin' href='javascript:void(0)' class='btn status' ><i class='fa fa-times' aria-hidden='true'></i></a>"
             htmlstatus = "class='rejected'";
         }else{
@@ -142,9 +148,11 @@ $(document).ready(function () {
      */
     $('.save-item').on('click', function () {
         var isfirst = true;
-        total_harga_reject = 0
-        total_harga_item = 0
-        sisa = 0
+        total_harga_reject = 0;
+        total_transfer_reject = 0;
+        total_harga_item = 0;
+        total_transfer = 0;
+        sisa = 0;
         $('#mytable tr').each(function (index, element) {
             // element == this
             if (isfirst){
@@ -157,10 +165,18 @@ $(document).ready(function () {
                 var id_update = $(this).find(".item").data("id");
                 var reject = $(this).find(".status").parent().hasClass("rejected");
                 var action;
-                total_harga_item += parseInt(Rp);
+                if(metode == "Transfer"){
+                    total_transfer += parseInt(Rp);
+                }else if(metode == "Tunai"){
+                    total_harga_item += parseInt(Rp);
+                }
                 
                 if(reject){
-                    total_harga_reject += parseInt(Rp);
+                    if(metode == "Transfer"){
+                        total_transfer_reject += parseInt(Rp);
+                    }else if(metode == "Tunai"){
+                        total_harga_reject += parseInt(Rp);
+                    }
                 }
                 
                 // console.log(item)
@@ -245,10 +261,13 @@ $(document).ready(function () {
                 }
             }
         });
-        //
+        // Tunai
         total_harga_item -= total_harga_reject;
+        // Transfer
+        total_transfer -= total_transfer_reject;
         sisa = parseInt(totalsaldo) - parseInt(total_harga_item);
         $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
+        $('.total_transfer').text("Rp "+total_transfer.toLocaleString());
         $('.sisa').text("Rp "+sisa.toLocaleString());
 
         /**
@@ -260,7 +279,8 @@ $(document).ready(function () {
             data: {
                 datenow: datenow,
                 sisa: sisa,
-                pengeluaran: total_harga_item
+                pengeluaran: total_harga_item,
+                pengeluaran_transfer: total_transfer
             },
             dataType: "JSON",
             success: function (response) {
@@ -340,8 +360,12 @@ $(document).ready(function () {
                             id = element.id;
                             item = element.item;
                             harga = element.harga;
-                            total_harga_item += parseInt(harga);
                             metode = element.metode;
+                            if(metode == "Tunai"){
+                                total_harga_item += parseInt(harga);
+                            }else if(metode == "Transfer"){
+                                total_transfer += parseInt(harga);
+                            }
                             status = element.status;
                             $('#mytable tr').each(function (index, element) {
                                 
@@ -364,7 +388,11 @@ $(document).ready(function () {
                                     $(this).find(".status").attr("title", "Rejected by Admin");
                                     $(this).find(".status").parent().addClass("rejected");
                                     if(index == 1){
-                                        total_harga_reject += parseInt(harga);
+                                        if(metode == "Tunai"){
+                                            total_harga_reject += parseInt(harga);
+                                        }else if(metode == "Transfer"){
+                                            total_transfer_reject += parseInt(harga);
+                                        }
                                     }
                                     
                                 }else{
@@ -382,8 +410,12 @@ $(document).ready(function () {
                             id = element.id;
                             item = element.item;
                             harga = element.harga;
-                            total_harga_item += parseInt(harga);
                             metode = element.metode;
+                            if(metode == "Tunai"){
+                                total_harga_item += parseInt(harga);
+                            }else if(metode == "Transfer"){
+                                total_transfer += parseInt(harga);
+                            }
                             status = element.status;
                             row += 1;
                             render = renderrow(row, id, item, harga, metode, status);
@@ -404,8 +436,12 @@ $(document).ready(function () {
                     id = response[0].id;
                     item = response[0].item;
                     harga = response[0].harga;
-                    total_harga_item += parseInt(harga);
                     metode = response[0].metode;
+                    if(metode == "Tunai"){
+                        total_harga_item += parseInt(harga);
+                    }else if(metode == "Transfer"){
+                        total_transfer += parseInt(harga);
+                    }
                     status = response[0].status;
                     // console.log(id);
                     // console.log(item);
@@ -414,7 +450,11 @@ $(document).ready(function () {
 
                     if(id != ""){
                         if(status == "Reject"){
-                            total_harga_reject += parseInt(harga);
+                            if(metode == "Tunai"){
+                                total_harga_reject += parseInt(harga);
+                            }else if(metode == "Transfer"){
+                                total_transfer_reject += parseInt(harga);
+                            }
                         }
                         $('#mytable tr').each(function (index, element) {
                             $(this).find(".item").val(item)
@@ -454,11 +494,14 @@ $(document).ready(function () {
                     }
                 }
 
-                // 
+                // Tunai
                 total_harga_item -= total_harga_reject;
+                // Transfer
+                total_transfer -= total_transfer_reject;
                 sisa = totalsaldo - total_harga_item;
                 // console.log(sisa)
                 $('.total_harga_item').text("Rp "+total_harga_item.toLocaleString());
+                $('.total_transfer').text("Rp "+total_transfer.toLocaleString());
                 $('.sisa').text("Rp "+sisa.toLocaleString());
                 
          }
